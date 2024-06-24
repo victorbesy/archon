@@ -1,0 +1,44 @@
+import argparse
+import os
+import toml
+
+class TestCommandGenerator:
+    def __init__(self, regression_config, system_config):
+        self.regression_config = regression_config
+        self.system_config = system_config
+        self.compile_commands = []
+        self.test_commands = []
+
+    def generate_commands(self):
+        for module_name, module in self.regression_config['modulelist'].items():
+            for group in module['groups']:
+                for test in group['testlist']:
+                    compile_cmd = f"make -C {group['name']}/build {test['comp_makeargs']}"
+                    test_cmd = f"make -C {group['name']}/tests/{test['testname']}_{test.get('seed', '1')} {test['run_makeargs']}"
+
+                    self.compile_commands.append(compile_cmd)
+                    self.test_commands.append(test_cmd)
+
+    def write_commands_to_files(self):
+        with open("CompileCommands.txt", "w") as compile_file:
+            compile_file.write("\n".join(self.compile_commands))
+
+        with open("TestCommands.txt", "w") as test_file:
+            test_file.write("\n".join(self.test_commands))
+
+# Main Execution
+if __name__ == "__main__":
+    # Argument Parsing
+    parser = argparse.ArgumentParser(description='Generate Test Commands')
+    parser.add_argument('-regression_config', required=True, help='Path to regression config file')
+    parser.add_argument('-system_config', required=True, help='Path to system config file')
+    args = parser.parse_args()
+
+    # Load Configuration Files
+    regression_config = toml.load(open(args.regression_config))
+    system_config = toml.load(open(args.system_config))
+
+    # Generate and Write Commands
+    generator = TestCommandGenerator(regression_config, system_config)
+    generator.generate_commands()
+    generator.write_commands_to_files()

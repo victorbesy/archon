@@ -1,0 +1,114 @@
+rm -rf obj_dir
+verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp
+make -C obj_dir -j -f Vcs_common.mk Vcs_common
+make[1]: Entering directory '/media/sf_workspace/archon/py/sanity_regression_20240422_183441/module1/Group1/build/obj_dir'
+ccache g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os -c -o sim_main.o ../sim_main.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+/usr/bin/python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
+echo "" > Vcs_common__ALL.verilator_deplist.tmp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
+Archive ar -rcs Vcs_common__ALL.a Vcs_common__ALL.o
+g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
+rm Vcs_common__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/media/sf_workspace/archon/py/sanity_regression_20240422_183441/module1/Group1/build/obj_dir'
+rm -rf obj_dir
+./obj_dir/Vcs_common 
+- top_sim.v:23: Verilog $finish
+make: Nothing to be done for 'run'.
+./obj_dir/Vcs_common 
+- top_sim.v:23: Verilog $finish
+make: Nothing to be done for 'run'.
+./obj_dir/Vcs_common 
+- top_sim.v:23: Verilog $finish
+make: Nothing to be done for 'run'.
+verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp
+make -C obj_dir -j -f Vcs_common.mk Vcs_common
+make[1]: Entering directory '/media/sf_workspace/archon/py/sanity_regression_20240422_183441/module1/Group2/build/obj_dir'
+ccache g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os -c -o sim_main.o ../sim_main.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+/usr/bin/python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
+echo "" > Vcs_common__ALL.verilator_deplist.tmp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
+Archive ar -rcs Vcs_common__ALL.a Vcs_common__ALL.o
+g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
+rm Vcs_common__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/media/sf_workspace/archon/py/sanity_regression_20240422_183441/module1/Group2/build/obj_dir'
+rm -rf obj_dir
+./obj_dir/Vcs_common 
+- top_sim.v:23: Verilog $finish
+make: Nothing to be done for 'run'.
+./obj_dir/Vcs_common 
+- top_sim.v:23: Verilog $finish
+verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp
+./obj_dir/Vcs_common 
+Curmake -C obj_dir -j -f Vcs_common.mk Vcs_common
+make[1]: Entering directory '/media/sf_workspace/archon/py/sanity_regression_20240422_183441/module1/Group3/build/obj_dir'
+rent Time(1713825299)  Time(459)
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+/usr/bin/python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
+685)
+)  Time(913)
+- top_sim.v:23: Verilog $finish
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
+Archive ar -rcs Vcs_common__ALL.a Vcs_common__ALL.o
+g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
+rm Vcs_common__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/media/sf_workspace/archon/py/sanity_regression_20240422_183441/module1/Group3/build/obj_dir'
+./obj_dir/Vcs_common 
+- top_sim.v:23: Verilog $finish
+./obj_dir/Vcs_common 
+- top_sim.v:23: Verilog $finish
+./obj_dir/Vcs_common 
+- top_sim.v:23: Verilog $finish
+./obj_dir/Vcs_common 
+- top_sim.v:23: Verilog $finish
+./obj_dir/Vcs_common 
+- top_sim.v:23: Verilog $finish
+./obj_dir/Vcs_common 
+- top_sim.v:23: Verilog $finish
+Future status: FINISHED , return_code: 0
+Future status: FINISHED , return_code: 0
+Future status: FINISHED , return_code: 0
+Future status: FINISHED , return_code: 0
+Future status: FINISHED , return_code: 0
+Future status: FINISHED , return_code: 0
+Future status: FINISHED , return_code: 0
+Future status: FINISHED , return_code: 0
+Future status: FINISHED , return_code: 0
+Future status: FINISHED , return_code: 0
+Future status: FINISHED , return_code: 0
+Future status: FINISHED , return_code: 0
+Future status: FINISHED , return_code: 0
+Future status: FINISHED , return_code: 0
+Future status: FINISHED , return_code: 0
+Graceful Shutdown:
+Compile Wait queue: Empty
+Compile Run queue: Empty
+Compile Done queue:
+{'command': 'make COMP_MAKEARGS=GROUP1', 'subdir': 'module1/Group1/build', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b28e4a7370 state=finished returned CompletedProcess>}
+{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b27e4b10c0 state=finished returned CompletedProcess>}
+{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b25efb9600 state=finished returned CompletedProcess>}
+Test Wait queue: Empty
+Test Run queue: Empty
+Test Done queue:
+{'command': 'make TEST=test1 SEED=484825 GROUP=Group1 TEST_NAME=Test1 run run RUNARGS=TEST1 MAKEARGS=TEST1', 'subdir': 'module1/Group1/tests/test1_484825', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b27e536920 state=finished returned CompletedProcess>}
+{'command': 'make TEST=test1 SEED=42 GROUP=Group1 TEST_NAME=Test2 run run RUNARGS=TEST2 MAKEARGS=TEST2', 'subdir': 'module1/Group1/tests/test1_42', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b268103ee0 state=finished returned CompletedProcess>}
+{'command': 'make TEST=test1 SEED=1 GROUP=Group1 TEST_NAME=Test3 run run RUNARGS=TEST3 MAKEARGS=TEST3', 'subdir': 'module1/Group1/tests/test1_1', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b268103f10 state=finished returned CompletedProcess>}
+{'command': 'make TEST=test1 SEED=430558 GROUP=Group1 TEST_NAME=Test4 run run RUNARGS=TEST4 MAKEARGS=TEST4', 'subdir': 'module1/Group1/tests/test1_430558', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b26713df60 state=finished returned CompletedProcess>}
+{'command': 'make TEST=test2 SEED=834030 GROUP=Group2 TEST_NAME=Test5 run RUN_MAKEARGS=GROUP2 RUNARGS=TEST5 MAKEARGS=TEST5', 'subdir': 'module1/Group2/tests/test2_834030', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b26a4cfd90 state=finished returned CompletedProcess>}
+{'command': 'make TEST=test2 SEED=42 GROUP=Group2 TEST_NAME=Test6 run RUN_MAKEARGS=GROUP2 RUNARGS=TEST6 MAKEARGS=TEST6', 'subdir': 'module1/Group2/tests/test2_42', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b2677008b0 state=finished returned CompletedProcess>}
+{'command': 'make TEST=test2 SEED=795980 GROUP=Group2 TEST_NAME=Test7 run RUN_MAKEARGS=GROUP2 RUNARGS=TEST7 MAKEARGS=TEST7', 'subdir': 'module1/Group2/tests/test2_795980', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b23bb74f70 state=finished returned CompletedProcess>}
+{'command': 'make TEST=test2 SEED=138338 GROUP=Group2 TEST_NAME=Test8 run RUN_MAKEARGS=GROUP2 RUNARGS=TEST8 MAKEARGS=TEST8', 'subdir': 'module1/Group2/tests/test2_138338', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b23bb74f10 state=finished returned CompletedProcess>}
+{'command': 'make TEST=test3 SEED=354894 GROUP=Group3 TEST_NAME=Test9 run RUN_MAKEARGS=GROUP3 RUNARGS=TEST9 MAKEARGS=TEST9', 'subdir': 'module1/Group3/tests/test3_354894', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b23b031cf0 state=finished returned CompletedProcess>}
+{'command': 'make TEST=test3 SEED=42 GROUP=Group3 TEST_NAME=Test10 run RUN_MAKEARGS=GROUP3 RUNARGS=TEST10 MAKEARGS=TEST10', 'subdir': 'module1/Group3/tests/test3_42', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b23b0339a0 state=finished returned CompletedProcess>}
+{'command': 'make TEST=test3 SEED=331546 GROUP=Group3 TEST_NAME=Test11 run RUN_MAKEARGS=GROUP3 RUNARGS=TEST11 MAKEARGS=TEST11', 'subdir': 'module1/Group3/tests/test3_331546', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b23b033490 state=finished returned CompletedProcess>}
+{'command': 'make TEST=test3 SEED=867981 GROUP=Group3 TEST_NAME=Test12 run RUN_MAKEARGS=GROUP3 RUNARGS=TEST12 MAKEARGS=TEST12', 'subdir': 'module1/Group3/tests/test3_867981', 'status': 'ok', 'priority': 0, 'future': <Future at 0x79b23b0320b0 state=finished returned CompletedProcess>}

@@ -1,0 +1,19 @@
+[database]
+host = "localhost"
+port = 3306
+user = "username"
+password = "password"
+output_dir = ""
+
+[server]
+host = "localhost"
+port = 4350
+
+[script]
+compile_makefile = "/media/sf_workspace/archon/test_sv/"
+test_makefile = "/media/sf_workspace/archon/test_sv/Makedir"
+concurrent_compile = 2
+concurrent_run = 3
+licenses = { "VCS" = 10 }
+max_timeout_compile = 60
+max_timeout_test = 120

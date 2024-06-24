@@ -1,0 +1,48 @@
+[[commands]]
+command = "make TEST=test1 SEED=976777 GROUP=Group1 TEST_NAME=Test1 run run RUNARGS=TEST1 MAKEARGS=TEST1"
+subdir = "module1/Group1/tests/test1_976777"
+
+[[commands]]
+command = "make TEST=test1 SEED=42 GROUP=Group1 TEST_NAME=Test2 run run RUNARGS=TEST2 MAKEARGS=TEST2"
+subdir = "module1/Group1/tests/test1_42"
+
+[[commands]]
+command = "make TEST=test1 SEED=1 GROUP=Group1 TEST_NAME=Test3 run run RUNARGS=TEST3 MAKEARGS=TEST3"
+subdir = "module1/Group1/tests/test1_1"
+
+[[commands]]
+command = "make TEST=test1 SEED=541373 GROUP=Group1 TEST_NAME=Test4 run run RUNARGS=TEST4 MAKEARGS=TEST4"
+subdir = "module1/Group1/tests/test1_541373"
+
+[[commands]]
+command = "make TEST=test2 SEED=492364 GROUP=Group2 TEST_NAME=Test5 run RUN_MAKEARGS=GROUP2 RUNARGS=TEST5 MAKEARGS=TEST5"
+subdir = "module1/Group2/tests/test2_492364"
+
+[[commands]]
+command = "make TEST=test2 SEED=42 GROUP=Group2 TEST_NAME=Test6 run RUN_MAKEARGS=GROUP2 RUNARGS=TEST6 MAKEARGS=TEST6"
+subdir = "module1/Group2/tests/test2_42"
+
+[[commands]]
+command = "make TEST=test2 SEED=238468 GROUP=Group2 TEST_NAME=Test7 run RUN_MAKEARGS=GROUP2 RUNARGS=TEST7 MAKEARGS=TEST7"
+subdir = "module1/Group2/tests/test2_238468"
+
+[[commands]]
+command = "make TEST=test2 SEED=202112 GROUP=Group2 TEST_NAME=Test8 run RUN_MAKEARGS=GROUP2 RUNARGS=TEST8 MAKEARGS=TEST8"
+subdir = "module1/Group2/tests/test2_202112"
+
+[[commands]]
+command = "make TEST=test3 SEED=765157 GROUP=Group3 TEST_NAME=Test9 run RUN_MAKEARGS=GROUP3 RUNARGS=TEST9 MAKEARGS=TEST9"
+subdir = "module1/Group3/tests/test3_765157"
+
+[[commands]]
+command = "make TEST=test3 SEED=42 GROUP=Group3 TEST_NAME=Test10 run RUN_MAKEARGS=GROUP3 RUNARGS=TEST10 MAKEARGS=TEST10"
+subdir = "module1/Group3/tests/test3_42"
+
+[[commands]]
+command = "make TEST=test3 SEED=216524 GROUP=Group3 TEST_NAME=Test11 run RUN_MAKEARGS=GROUP3 RUNARGS=TEST11 MAKEARGS=TEST11"
+subdir = "module1/Group3/tests/test3_216524"
+
+[[commands]]
+command = "make TEST=test3 SEED=634555 GROUP=Group3 TEST_NAME=Test12 run RUN_MAKEARGS=GROUP3 RUNARGS=TEST12 MAKEARGS=TEST12"
+subdir = "module1/Group3/tests/test3_634555"
+

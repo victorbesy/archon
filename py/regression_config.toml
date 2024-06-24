@@ -1,0 +1,50 @@
+regression_name = "sanity_regression"
+
+[modulelist.module1]
+compile = "make"
+comp_args = "SIM=verilator build_sv"
+runargs = "make"
+run_makeargs = "run"
+timeout_m = 30
+
+[[modulelist.module1.groups]]
+name = "Group1"
+compile = "make"
+comp_args = "COMP_MAKEARGS=GROUP1"
+runargs = "make"
+run_makeargs = "run"
+timeout_m = 30
+testlist = [
+    {testname="Test1", testfile="test1.v", repeat=1, seed="random", runargs="RUNARGS=TEST1", makeargs="MAKEARGS=TEST1", run="yes", timeout_m=30},
+    {testname="Test2", testfile="test1.v", repeat=1, seed="42", runargs="RUNARGS=TEST2", makeargs="MAKEARGS=TEST2", run="yes", timeout_m=30},
+    {testname="Test3", testfile="test1.v", repeat=1, seed="1", runargs="RUNARGS=TEST3", makeargs="MAKEARGS=TEST3", run="yes", timeout_m=30},
+    {testname="Test4", testfile="test1.v", repeat=1, seed="random", runargs="RUNARGS=TEST4", makeargs="MAKEARGS=TEST4", run="yes", timeout_m=30}
+]
+
+[[modulelist.module1.groups]]
+name = "Group2"
+compile = "make"
+comp_args = "COMP_MAKEARGS=GROUP2"
+runargs = "RUNARGS=GROUP2"
+run_makeargs = "RUN_MAKEARGS=GROUP2"
+timeout_m = 45
+testlist = [
+    {testname="Test5", testfile="test2.v", repeat=1, seed="random", runargs="RUNARGS=TEST5", makeargs="MAKEARGS=TEST5", run="yes", timeout_m=30},
+    {testname="Test6", testfile="test2.v", repeat=1, seed="42", runargs="RUNARGS=TEST6", makeargs="MAKEARGS=TEST6", run="yes", timeout_m=30},
+    {testname="Test7", testfile="test2.v", repeat=1, seed="random", runargs="RUNARGS=TEST7", makeargs="MAKEARGS=TEST7", run="yes", timeout_m=30},
+    {testname="Test8", testfile="test2.v", repeat=1, seed="random", runargs="RUNARGS=TEST8", makeargs="MAKEARGS=TEST8", run="yes", timeout_m=30}
+]
+
+[[modulelist.module1.groups]]
+name = "Group3"
+compile = "make"
+comp_args = "COMP_MAKEARGS=GROUP3"
+runargs = "RUNARGS=GROUP3"
+run_makeargs = "RUN_MAKEARGS=GROUP3"
+timeout_m = 45
+testlist = [
+    {testname="Test9", testfile="test3.v", repeat=1, seed="random", runargs="RUNARGS=TEST9", makeargs="MAKEARGS=TEST9", run="yes", timeout_m=30},
+    {testname="Test10", testfile="test3.v", repeat=1, seed="42", runargs="RUNARGS=TEST10", makeargs="MAKEARGS=TEST10", run="yes", timeout_m=30},
+    {testname="Test11", testfile="test3.v", repeat=1, seed="random", runargs="RUNARGS=TEST11", makeargs="MAKEARGS=TEST11", run="yes", timeout_m=30},
+    {testname="Test12", testfile="test3.v", repeat=1, seed="random", runargs="RUNARGS=TEST12", makeargs="MAKEARGS=TEST12", run="yes", timeout_m=30}
+]
