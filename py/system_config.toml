@@ -16,4 +16,4 @@ concurrent_compile = 2
 concurrent_run = 3
 licenses = { "VCS" = 10 }
 max_timeout_compile = 60
-max_timeout_test = 120
+max_timeout_test = 180
