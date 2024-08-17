@@ -58,7 +58,7 @@ class SmartQ(queue.Queue):
     def iter_queue(self):
         """Return an iterator for the queue without removing items.
         for item in smart_queue.iter_queue():
-        print(item)  # This prints each item without removing them from the queue
+        print(item)  # This prints each item without removing them from the queu
         """
         with self.lock:
             # Create a snapshot of the queue to iterate over
@@ -105,8 +105,6 @@ class BroadcastEvent:
     def print_event(self,header=''):
         print(f" {header}:: Event: {self._id} {self.ev_instruction}, Sender: {self.sender}, Receiver: {self.receiver}, Message : {self.QMessage}")
 
-    def get_id(self):
-        return self._id
 class EventUtils:
 
     EvEm = EventEmitter()
@@ -132,7 +130,7 @@ class EventUtils:
         with self.lock:
             @self.EvEm.on('broadcast_event')
             def handle_event(event):
-                unique_event_key = (event.get_id(), name)
+                unique_event_key = (event._id, name)
                 if event.sender == name:
                     return
                 if unique_event_key in self.processed_event_ids:
@@ -382,27 +380,25 @@ class CompDoneQArbEx(threading.Thread):
                         #print(f"Future status: {current_entry['future']._state} , return_code: {current_entry['future']._result.returncode}")
 
                         # Check if future is done
-                        result  = current_entry['future'].result()
-                        ic(result)
-                        #if current_entry['future']._state == 'FINISHED':
-                        # Move current_entry to the _done_queue
-                        if current_entry['future'].result() == 0:
-                            current_entry['status'] = 'ok'
-                        else:
-                            current_entry['status'] = 'error'
-                        self._run_queue.remove(current_entry)
-                        #if current_entry['future'].result() is not None:
-                        #    print(f"Future status: {current_entry['future']._state} , return_code: {current_entry['future']._result.returncode}")
-                        receiver = 'ALL'
-                        with self.lock:
-                            self._done_queue.put(current_entry)
-                            self.event.generate_event(self._name,receiver,current_entry,"NOP")
-                            # Reset check for empty flag
-                            #self.empty_flag = False
+                        if current_entry['future']._state == 'FINISHED':
+                            # Move current_entry to the _done_queue
+                            if(current_entry['future']._result.returncode == 0):
+                                current_entry['status'] = 'ok'
+                            else:
+                                current_entry['status'] = 'error'
+                            temp_queue= self._run_queue.get()
+                            if current_entry['future']._result is not None:
+                                print(f"Future status: {current_entry['future']._state} , return_code: {current_entry['future']._result.returncode}")
+                            receiver = 'ALL'
+                            with self.lock:
+                                self._done_queue.put(current_entry)
+                                self.event.generate_event(self._name,receiver,current_entry,"NOP")
+                                # Reset check for empty flag
+                                self.empty_flag = False
 
 class ArtifactDoneQMg(CompDoneQArbEx) :
-    #def __init__(self, config, system_config):
-    #    super().__init__(config, system_config)
+    def __init__(self, config, system_config):
+        super().__init__(config, system_config)
 
     def run(self):
         empty_flag = True
@@ -428,22 +424,22 @@ class ArtifactDoneQMg(CompDoneQArbEx) :
                         #print(f"Future status: {current_entry['future']._state} , return_code: {current_entry['future']._result.returncode}")
 
                         # Check if future is done
-                        #if current_entry['future']._state == 'FINISHED':
-                        # Move current_entry to the _done_queue
-                        if current_entry['future'].result() == 0:
-                            current_entry['status'] = 'ok'
-                        else:
-                            current_entry['status'] = 'error'
-                        self._run_queue.remove(current_entry)
+                        if current_entry['future']._state == 'FINISHED':
+                            # Move current_entry to the _done_queue
+                            if current_entry['future']._result.returncode == 0:
+                                current_entry['status'] = 'ok'
+                            else:
+                                current_entry['status'] = 'error'
+                            self._run_queue.remove(current_entry)
 
-                        #if current_entry['future'].result() is not None:
-                        #    print(f"Future status: {current_entry['future']._state} , return_code: {current_entry['future']._result.returncode}")
-                        receiver = 'ALL'
-                        with self.lock:
-                            self._done_queue.put(current_entry)
-                            self.event.generate_event(self._name,receiver,current_entry,"NOP")
-                            # Reset check for empty flag
-                            #empty_flag = False
+                            if current_entry['future']._result is not None:
+                                print(f"Future status: {current_entry['future']._state} , return_code: {current_entry['future']._result.returncode}")
+                            receiver = 'ALL'
+                            with self.lock:
+                                self._done_queue.put(current_entry)
+                                self.event.generate_event(self._name,receiver,current_entry,"NOP")
+                                # Reset check for empty flag
+                                self.empty_flag = False
 
 class CompRunQArbEx(threading.Thread):
     _max_timeout = 0
@@ -530,8 +526,8 @@ class CompRunQArbEx(threading.Thread):
                 if self._run_queue.empty() and self._wait_queue.empty() and not self._done_queue.empty():
                     self.config.compile_eot = True
 
-        except ValueError as CompRunQArbEx_error:
-            print(f"{self._name}:: Error in CompRunQArbEx: {CompRunQArbEx_error}")
+        except ValueError as e:
+            print(f"{self._name}:: Error in CompRunQArbEx: {e}")
             os._exit(1)
 
     def process_task(self):
@@ -574,8 +570,8 @@ class CompRunQArbEx(threading.Thread):
 
 class ArtifactRunQArbEx(CompRunQArbEx):
 
-    #def __init__(self, config, system_config):
-    #    super().__init__(config, system_config)
+    def __init__(self, config, system_config):
+        super().__init__(config, system_config)
 
     def run(self):
         try:
@@ -592,7 +588,7 @@ class ArtifactRunQArbEx(CompRunQArbEx):
                     self.event.return_event = None
                     #self.config.test_eot = True
 
-                size= self._run_queue.qsize()
+                size= self._run_queue.qsize();
                 if size < self.get_max_concurrent_task():
                     if not self._wait_queue.empty():
                         self.process_task()
@@ -602,8 +598,8 @@ class ArtifactRunQArbEx(CompRunQArbEx):
                     self.config.test_eot = True
 
 
-        except ValueError as ArtifactRunQArbEx_err:
-            print(f"{self._name}:: Error in ArtifactRunQArbEx: {ArtifactRunQArbEx_err}")
+        except ValueError as e:
+            print(f"{self._name}:: Error in ArtifactRunQArbEx: {e}")
             os._exit(1)
 
 
@@ -638,8 +634,8 @@ class ArtifactRunQArbEx(CompRunQArbEx):
                             else : self._wait_queue.put(task)
 
 class RunQMng(CompDoneQArbEx) :
-    #def __init__(self, config, system_config):
-    #    super().__init__(config, system_config)
+    def __init__(self, config, system_config):
+        super().__init__(config, system_config)
 
     def run(self):
         while self.config.test_eot is False:
@@ -739,12 +735,13 @@ def main(regression_config_file, system_config_file, compile_commands_file, run_
         ArtifactDoneQArbEx_obj.set_done_queue(config.test_done_queue)
         ArtifactDoneQArbEx_obj.set_name("ArtifactDoneQArbEx")
 
-        #ArtifactRunQMng_obj = RunQMng(config, system_config)
-        #ArtifactRunQMng_obj.set_wait_queue(config.test_wait_queue)
-        #ArtifactRunQMng_obj.set_run_queue(config.tes_run_queue)
-        #ArtifactRunQMng_obj.set_done_queue(config.test_done_queue)
-        #ArtifactRunQMng_obj.set_name("CompRunQMng")
-
+        '''
+        ArtifactRunQMng_obj = RunQMng(config, system_config)
+        ArtifactRunQMng_obj.set_wait_queue(config.test_wait_queue)
+        ArtifactRunQMng_obj.set_run_queue(config.tes_run_queue)
+        ArtifactRunQMng_obj.set_done_queue(config.test_done_queue)
+        ArtifactRunQMng_obj.set_name("CompRunQMng")
+        '''
 
         threads = [
             CompDoneQArbEx_obj,
@@ -772,8 +769,8 @@ def main(regression_config_file, system_config_file, compile_commands_file, run_
         config.print_queue(config.test_done_queue, "Artifact Done")
         # Optionally print the contents of other queues
 
-    except ValueError as main_error:
-        print(f"Error occurred in main: {main_error}")
+    except ValueError as e:
+        print(f"Error occurred in main: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":
