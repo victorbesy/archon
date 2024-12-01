@@ -1,0 +1,30 @@
+# queues.py
+
+import queue
+import threading
+
+class SmartQ(queue.Queue):
+    def __init__(self):
+        super().__init__()
+        self.lock = threading.Lock()
+
+    def peek(self):
+            if self.queue:
+                return self.queue[0]
+
+    def remove(self, item):
+        try:
+            self.queue.remove(item)
+            return 0
+        except ValueError:
+            return -1
+
+    def iter_queue(self):
+        snapshot = list(self.queue)
+        for item in snapshot:
+            yield item
+
+    def iter_conditional(self, condition):
+        for item in list(self.queue):
+            if condition(item):
+                yield item

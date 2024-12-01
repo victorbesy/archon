@@ -1,0 +1,7 @@
+[script]
+compile_makefile = "./Makefile"
+test_makefile = "./TestMakefile"
+max_timeout_compile = 60
+max_timeout_test = 60
+concurrent_compile = 2
+concurrent_run = 2

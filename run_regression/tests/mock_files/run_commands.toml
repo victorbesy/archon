@@ -1,0 +1,3 @@
+[[commands]]
+command = "./run_tests"
+subdir = "tests"

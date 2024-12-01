@@ -1,0 +1,3 @@
+[[commands]]
+command = "make -C build"
+subdir = "build"

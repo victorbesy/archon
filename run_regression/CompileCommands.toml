@@ -1,0 +1,12 @@
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP1"
+subdir = "module1/Group1/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP2"
+subdir = "module1/Group2/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP3"
+subdir = "module1/Group3/build"
+
