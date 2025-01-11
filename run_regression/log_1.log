@@ -1,0 +1,194 @@
+ic| self._name: 'CompileWatchdog', temp: False
+ic| task: {'adviser': '',
+           'approved': [],
+           'command': 'make COMP_MAKEARGS=GROUP1',
+           'future': '',
+           'status': 'wait',
+           'subdir': 'module1/Group1/build'}
+ic| self._name:ic '|CompileWatchdog',  temp: queue_adviser.Falsepy
+:52 in process_inputQ() at 18:25:20.353
+ic| time.time() - start_time: 0.06649374961853027, max_timeout: 60
+rm -rf obj_dir
+QM compile_wait_queue queue:
+{'command': 'make COMP_MAKEARGS=GROUP1', 'subdir': 'module1/Group1/build', 'status': 'wait', 'approved': ['CompRunQMng'], 'adviser': '', 'future': ''}
+{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'wait', 'approved': ['CompRunQMng'], 'adviser': '', 'future': ''}
+{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'wait', 'approved': ['CompRunQMng'], 'adviser': '', 'future': ''}
+QM compile_wait_queue queue:
+{'command': 'make COMP_MAKEARGS=GROUP1', 'subdir': 'module1/Group1/build', 'status': 'wait', 'approved': [], 'adviser': '', 'future': ''}
+{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'wait', 'approved': ['CompRunQMng'], 'adviser': '', 'future': ''}
+{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'wait', 'approved': ['CompRunQMng'], 'adviser': '', 'future': ''}
+CompDoneQArbEx compile_wait_queue queue:
+{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'wait', 'approved': ['CompRunQMng'], 'adviser': '', 'future': ''}
+{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'wait', 'approved': ['CompRunQMng'], 'adviser': '', 'future': ''}
+CompDoneQArbEx compile_run_queue queue:
+{'command': 'make COMP_MAKEARGS=GROUP1', 'subdir': 'module1/Group1/build', 'status': 'run', 'approved': [], 'adviser': '', 'future': <Future at 0x731974a9b620 state=running>}
+compile_done_queue queue: Empty
+QM compile_wait_queue queue:
+{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'wait', 'approved': ['CompRunQMng'], 'adviser': '', 'future': ''}
+{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'wait', 'approved': ['CompRunQMng'], 'adviser': '', 'future': ''}
+QM compile_wait_queue queue:
+{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'wait', 'approved': [], 'adviser': '', 'future': ''}
+{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'wait', 'approved': ['CompRunQMng'], 'adviser': '', 'future': ''}
+ic| task: {'adviser': '',
+           'approved': [],
+           'command': 'make COMP_MAKEARGS=GROUP2',
+           'future': '',
+           'status': 'wait',
+           'subdir': 'module1/Group2/build'}
+ic| queue_adviser.py:52 in process_inputQ() at 18:25:21.299
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 1.0792810916900635, max_timeout: 60
+QM compile_wait_queue queue:
+{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'wait', 'approved': ['CompRunQMng'], 'adviser': '', 'future': ''}
+{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'wait', 'approved': [], 'adviser': '', 'future': ''}
+QM compile_wait_queue queue:
+{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'wait', 'approved': [], 'adviser': '', 'future': ''}
+{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'wait', 'approved': [], 'adviser': '', 'future': ''}
+ic| task: {'adviser': '',
+           'approved': [],
+           'command': 'make COMP_MAKEARGS=GROUP3',
+           'future': '',
+           'status': 'wait',
+           'subdir': 'module1/Group3/build'}
+ic| queue_adviser.py:52 in process_inputQ() at 18:25:22.367
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 2.095822811126709, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 3.111748218536377, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 4.1337339878082275, max_timeout: 60
+verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 5.163608551025391, max_timeout: 60
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+- Verilator: Built from 0.275 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.177 s (elab=0.001, cvt=0.045, bld=0.000); cpu 0.031 s on 1 threads; alloced 10.176 MB
+make -C obj_dir -j -f Vcs_common.mk Vcs_common
+make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250108_182520/module1/Group1/build/obj_dir'
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
+echo "" > Vcs_common__ALL.verilator_deplist.tmp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 6.188741445541382, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 7.203332901000977, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 8.215568780899048, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 9.22579550743103, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 10.233123779296875, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 11.241028547286987, max_timeout: 60
+g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
+rm Vcs_common__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250108_182520/module1/Group1/build/obj_dir'
+rm -rf obj_dir
+CompDoneQArbEx compile_wait_queue queue:
+{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'wait', 'approved': [], 'adviser': '', 'future': ''}
+CompDoneQArbEx compile_run_queue queue:
+{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'run', 'approved': [], 'adviser': '', 'future': <Future at 0x731974864500 state=running>}
+CompDoneQArbEx compile_done_queue queue:
+{'command': 'make COMP_MAKEARGS=GROUP1', 'subdir': 'module1/Group1/build', 'status': 'ok', 'approved': [], 'adviser': '', 'future': <Future at 0x731974a9b620 state=finished returned CompletedProcess>}
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 12.254024505615234, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 13.269484519958496, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 14.317825317382812, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 15.349297523498535, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 16.368326663970947, max_timeout: 60
+verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+- Verilator: Built from 0.275 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.184 s (elab=0.001, cvt=0.018, bld=0.000); cpu 0.039 s on 1 threads; alloced 10.180 MB
+make -C obj_dir -j -f Vcs_common.mk Vcs_common
+make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250108_182520/module1/Group2/build/obj_dir'
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
+echo "" > Vcs_common__ALL.verilator_deplist.tmp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 17.388437271118164, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 18.404160261154175, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 19.421160221099854, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 20.435083627700806, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 21.441718339920044, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 22.448402166366577, max_timeout: 60
+g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
+rm Vcs_common__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250108_182520/module1/Group2/build/obj_dir'
+rm -rf obj_dir
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 23.45684051513672, max_timeout: 60
+compile_wait_queue queue: Empty
+CompDoneQArbEx compile_run_queue queue:
+{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'run', 'approved': [], 'adviser': '', 'future': <Future at 0x73197476a150 state=running>}
+CompDoneQArbEx compile_done_queue queue:
+{'command': 'make COMP_MAKEARGS=GROUP1', 'subdir': 'module1/Group1/build', 'status': 'ok', 'approved': [], 'adviser': '', 'future': <Future at 0x731974a9b620 state=finished returned CompletedProcess>}
+{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'ok', 'approved': [], 'adviser': '', 'future': <Future at 0x731974864500 state=finished returned CompletedProcess>}
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 24.469300508499146, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 25.488709688186646, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 26.508790969848633, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 27.528939485549927, max_timeout: 60
+verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 28.54630160331726, max_timeout: 60
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+- Verilator: Built from 0.275 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.192 s (elab=0.002, cvt=0.020, bld=0.000); cpu 0.030 s on 1 threads; alloced 10.176 MB
+make -C obj_dir -j -f Vcs_common.mk Vcs_common
+make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250108_182520/module1/Group3/build/obj_dir'
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
+echo "" > Vcs_common__ALL.verilator_deplist.tmp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 29.56216835975647, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 30.577919483184814, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 31.58959698677063, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 32.59564971923828, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 33.601969718933105, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 34.613120317459106, max_timeout: 60
+g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
+rm Vcs_common__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250108_182520/module1/Group3/build/obj_dir'
+Graceful Shutdown:
+compile_wait_queue queue: Empty
+compile_run_queue queue: Empty
+Compile Done: compile_done_queue queue:
+{'command': 'make COMP_MAKEARGS=GROUP1', 'subdir': 'module1/Group1/build', 'status': 'ok', 'approved': [], 'adviser': '', 'future': <Future at 0x731974a9b620 state=finished returned CompletedProcess>}
+{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'ok', 'approved': [], 'adviser': '', 'future': <Future at 0x731974864500 state=finished returned CompletedProcess>}
+{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'ok', 'approved': [], 'adviser': '', 'future': <Future at 0x73197476a150 state=finished returned CompletedProcess>}
+PASS:  config.compile_run_queue is empty
+PASS:  config.compile_wait_queue is empty
+End of Regression

@@ -83,13 +83,13 @@ class ArtifactRunQArbEx(threading.Thread):
 
     def process_task(self):
         with concurrent.futures.ThreadPoolExecutor() as executor:
-            task = self._wait_queue.peek()
+            task = self._wait_queue.peek(release=False, acquire=True)
             if 'command' in task:
                 run_command = task['command']
             else:
                 raise ValueError("wait queue does not contain a 'command' key")
 
-            task = self._wait_queue.get()
+            task = self._wait_queue.get(release=False, acquire=False)
             subdir = os.path.join(self.config.root_dir, task['subdir'])
             for compile_task in list(self.config.compile_done_queue.queue):
                 if '/'.join(compile_task['subdir'].split('/')[:2]) == '/'.join(task['subdir'].split('/')[:2]):
@@ -98,51 +98,7 @@ class ArtifactRunQArbEx(threading.Thread):
                     if os.path.exists(build_dir):
                         shutil.copytree(build_dir, subdir, dirs_exist_ok=True)
                         future = executor.submit(subprocess.run, run_command.split(), cwd=subdir)
-                        ic(self._name,future)
                         task['status'] = 'run'
                         task['future'] = future
-                        self._run_queue.put(task)
-
-class ArtifactDoneQMg(threading.Thread):
-    def __init__(self, config, system_config):
-        super().__init__()
-        self.config = config
-        self.lock = threading.Lock()
-        self._wait_queue = None
-        self._run_queue = None
-        self._done_queue = None
-
-    def set_name(self, name):
-        self._name = name
-
-    def get_name(self):
-        return self._name
-
-    def set_wait_queue(self, q):
-        if isinstance(q, SmartQ):
-            self._wait_queue = q
-
-    def set_run_queue(self, q):
-        if isinstance(q, SmartQ):
-            self._run_queue = q
-
-    def set_done_queue(self, q):
-        if isinstance(q, SmartQ):
-            self._done_queue = q
-
-    def run(self):
-        while not self.config.test_eot:
-            if self._run_queue.empty():
-                delay = random.uniform(0, 1)
-                time.sleep(delay)
-                continue
-            else:
-                current_entry = self._run_queue.peek()
-                result = current_entry['future'].result()
-                if result == 0:
-                    current_entry['status'] = 'ok'
-                else:
-                    current_entry['status'] = 'error'
-                self._run_queue.remove(current_entry)
-                with self.lock:
-                    self._done_queue.put(current_entry)
+                        self._run_queue.put(task,release=False, acquire=False)
+            self._wait_queue.release()

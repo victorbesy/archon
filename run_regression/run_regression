@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Check if the number of iterations is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 <number_of_iterations>"
+  exit 1
+fi
+
+# Number of times to run the command
+rm -rf *.log
+N=$1
+
+# Loop to run the command N times
+for (( i=1; i<=N; i++ ))
+do
+  # Define the log file with the iteration prefix
+  log_file="log_${i}.log"
+
+  # Clean up the previous regression files
+  rm -rf sanity_regression*
+
+  # Run the main command and save the output to the log file
+  python3 main.py -regression_config=regression_config.toml -system_config=system_config.toml -compile_commands=CompileCommands.toml -run_commands=RunCommands.toml |& tee  "${log_file}"
+
+  # Run the script to check the log file
+  python3 parser_log.py  "${log_file}"
+
+  # Check if the script ended with an error code
+  if [ $? -ne 0 ]; then
+    echo "FAILED"
+    exit 1
+  fi
+
+  echo "Iteration ${i} completed, output logged to ${log_file}"
+done
+

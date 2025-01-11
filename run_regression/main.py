@@ -4,6 +4,7 @@ from config import Config
 from comp_run_q_arb_ex import CompRunQArbEx
 from comp_done_q_arb_ex import CompDoneQArbEx
 from queue_manager import QManager
+from queue_adviser import QAdviser
 from watchdogs import Watchdog
 from artifact_run_q_arb_ex import ArtifactRunQArbEx
 import threading
@@ -20,6 +21,11 @@ def main(regression_config_file, system_config_file, compile_commands_file, run_
         config.fill_queues(compile_commands, run_commands)
         config.set_status_wait(config.compile_wait_queue)
         config.set_status_wait(config.test_wait_queue)
+
+        config.set_number_of_compile_workers(config.compile_wait_queue.get_size())
+        config.set_number_of_test_workers(config.test_wait_queue.get_size())
+
+
 #############################
         comp_run_eot_event = threading.Event()
         comp_run_arb_ex = CompRunQArbEx(config, system_config,comp_run_eot_event) # comp_run_event - output
@@ -45,6 +51,11 @@ def main(regression_config_file, system_config_file, compile_commands_file, run_
         comp_run_mng.set_done_queue(config.compile_done_queue)
         comp_run_mng.set_name("CompRunQMng")
 
+        comp_queue_adv = QAdviser(config, system_config,comp_done_eot_event)
+        comp_queue_adv.set_input_queue(config.comp_adv_req_queue)
+        comp_queue_adv.set_output_queue(config.comp_adv_resp_queue)
+        comp_queue_adv.set_name("CompQueueAdv")
+
         compile_watchdog_eot_event = threading.Event()
         compile_watchdog = Watchdog(config, system_config, compile_watchdog_eot_event)
         compile_watchdog.set_wait_queue(config.compile_wait_queue)
@@ -68,6 +79,7 @@ def main(regression_config_file, system_config_file, compile_commands_file, run_
         threads = [ comp_run_arb_ex,
                     comp_done_arb_ex,
                     comp_run_mng,
+                    comp_queue_adv,
                     compile_watchdog
                     #artifact_run_arb_ex,
                     #artifact_done_arb_ex,
@@ -85,13 +97,19 @@ def main(regression_config_file, system_config_file, compile_commands_file, run_
         #TODO uncomment for artifact runs
         #artifact_watchdog.join()
 
-        ic(compile_watchdog_eot_event.is_set(), artifact_watchdog_eot_event.is_set())
         if not compile_watchdog_eot_event.is_set() and not artifact_watchdog_eot_event.is_set():
             print("Graceful Shutdown:")
-            ic(config.compile_wait_queue.is_empty(), config.compile_run_queue.is_empty(), config.compile_done_queue.is_empty())
             config.compile_wait_queue.print_queue("Compile Wait:")
             config.compile_run_queue.print_queue("Compile Run:")
             config.compile_done_queue.print_queue("Compile Done:")
+            if not (config.compile_run_queue.is_empty()):
+                print("ERROR:  config.compile_run_queue is not empty")
+            else:
+                print("PASS:  config.compile_run_queue is empty")
+            if (not config.compile_wait_queue.is_empty()):
+                print("ERROR:  config.compile_wait_queue is not empty")
+            else:
+                print("PASS:  config.compile_wait_queue is empty")
         print("End of Regression")
 
     except ValueError as error:

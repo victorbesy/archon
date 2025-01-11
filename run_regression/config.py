@@ -12,12 +12,24 @@ class Config:
         self.regression_name = regression_config.get('regression_name', 'default_regression_name')
         self.create_directory()
         self.compile_wait_queue = SmartQ(verbose=False,name="compile_wait_queue")
-        self.compile_run_queue = SmartQ(verbose=True,name="compile_run_queue")
-        self.compile_done_queue = SmartQ(verbose=True,name="compile_done_queue")
-        self.test_wait_queue = SmartQ(verbose=True,name="test_wait_queue")
-        self.test_run_queue = SmartQ(verbose=True,name="test_run_queue")
-        self.test_done_queue = SmartQ(verbose=True,name="test_done_queue")
+        self.compile_run_queue = SmartQ(verbose=False,name="compile_run_queue")
+        self.compile_done_queue = SmartQ(verbose=False,name="compile_done_queue")
+        self.test_wait_queue = SmartQ(verbose=False,name="test_wait_queue")
+        self.test_run_queue = SmartQ(verbose=False,name="test_run_queue")
+        self.test_done_queue = SmartQ(verbose=False,name="test_done_queue")
+        self.comp_adv_req_queue = SmartQ(verbose=False,name="comp_adv_req_queue")
+        self.comp_adv_resp_queue = SmartQ(verbose=False,name="comp_adv_resp_queue")
+        self.number_of_compile_workers = 0
+        self.number_of_test_workers = 0
 
+    def set_number_of_compile_workers(self,number):
+        self.number_of_compile_workers = number
+    def set_number_of_test_workers(self,number):
+        self.number_of_test_workers = number
+    def get_number_of_compile_workers(self):
+        return self.number_of_compile_workers
+    def get_number_of_test_workers(self):
+        return self.number_of_test_workers
     def set_watchdog_eot(self):
         self.watchdog_eot = True
 
@@ -36,6 +48,7 @@ class Config:
                 'subdir': command['subdir'],
                 'status': '',
                 'approved': ['CompRunQMng'],
+                'adviser': '',
                 'future': ''
             })
         for command in run_commands['commands']:
@@ -44,6 +57,7 @@ class Config:
                 'subdir': command['subdir'],
                 'status': '',
                 'approved': ['ArtRunQMng'],
+                'adviser': '',
                 'future': ''
             })
 

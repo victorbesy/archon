@@ -64,7 +64,6 @@ class QManager(threading.Thread) :
 
     def run(self):
         while not self.force_to_exit_ev.is_set():
-            ic(self.force_to_exit_ev.is_set(), self.config.compile_eot)
             if not self._wait_queue.is_empty():
                 self.process_waitQ()
             if not self._run_queue.is_empty():
@@ -73,22 +72,26 @@ class QManager(threading.Thread) :
                 self.process_doneQ()
             delay = random.uniform(0, 1)
             time.sleep(delay)
-        ic(self.force_to_exit_ev.is_set(), self.config.compile_eot)
 
     def process_waitQ(self):
         task = self._wait_queue.peek()
         hit = self.config.find_list_entry_index(task['approved'], self._name)
         if hit is not None:
-            ic(hit)
+            #get send  task to adviser
+            self.config.comp_adv_req_queue.put(task)
+            task1 = self.config.comp_adv_resp_queue.get()
+            if task1 is not None:
+                ic(task1)
             self._wait_queue.print_queue('QM')
             task['approved']= self.config.remove_list_entry_by_index(task['approved'],hit)
             self._wait_queue.print_queue('QM')
+        else:
+            task = self._wait_queue.rotate_left()
 
     def process_runQ(self):
         task = self._run_queue.peek()
         hit = self.config.find_list_entry_index(task['approved'], self._name)
         if hit is not None:
-            ic(hit)
             self._run_queue.print_queue('QM')
             #task['approved']= self.config.remove_list_entry_by_index(task['approved'],hit)
             self._run_queue.print_queue('QM')
@@ -96,7 +99,6 @@ class QManager(threading.Thread) :
         task = self._done_queue.peek()
         hit = self.config.find_list_entry_index(task['approved'], self._name)
         if hit is not None:
-            ic(hit)
             self._done_queue.print_queue('QM')
             #task['approved']= self.config.remove_list_entry_by_index(task['approved'],hit)
             self._done_queue.print_queue('QM')

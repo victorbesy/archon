@@ -65,11 +65,11 @@ class CompRunQArbEx(threading.Thread):
             if not self._makefile_path:
                 raise ValueError("Missing makefile path in system configuration")
 
-            if not (self._wait_queue and self._run_queue and self._done_queue):
+            if not (self._wait_queue is not None and self._run_queue is not None and self._done_queue is not None):
                 raise ValueError("Queues not properly set up")
 
             while not self.config.compile_eot and not self.config.watchdog_eot :
-                size = self._run_queue.qsize()
+                size = self._run_queue.get_size()
                 if size < self.get_max_concurrent_task():
                     if not self._wait_queue.is_empty():
                         self.process_task()
@@ -86,7 +86,6 @@ class CompRunQArbEx(threading.Thread):
     def process_task(self):
         with concurrent.futures.ThreadPoolExecutor() as executor:
             task = self._wait_queue.peek()
-            ic(self._name,task)
             if 'command' in task:
                 run_command = task['command']
             else:
@@ -98,11 +97,9 @@ class CompRunQArbEx(threading.Thread):
                 raise ValueError("wait queue does not contain an 'approved' key")
 
             if len(approved) == 0:
-                ic(self._name,len(approved))
                 task = self._wait_queue.get()
                 subdir = os.path.join(self.config.root_dir, task['subdir'])
                 os.makedirs(subdir, exist_ok=True)
-
                 if os.path.isdir(self._makefile_path):
                     for filename in os.listdir(self._makefile_path):
                         full_file_path = os.path.join(self._makefile_path, filename)
