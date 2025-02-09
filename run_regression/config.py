@@ -21,6 +21,37 @@ class Config:
         self.comp_adv_resp_queue = SmartQ(verbose=False,name="comp_adv_resp_queue")
         self.number_of_compile_workers = 0
         self.number_of_test_workers = 0
+        self.advisor_response_dict = {
+        "worker_execution": [
+            "wait",
+            "start",
+            "stop",
+            "pause",
+            "resume",
+            "restart",
+            "kill",
+            "finish",
+            "timeout"
+        ],
+        "get_worker_info": [
+            "get log",
+            "get status",
+            "update state"
+        ],
+        "worker_resource_config": [
+            "get config",
+            "scale up memory",
+            "scale down memory",
+            "scale up cpu",
+            "scale down cpu"
+        ],
+        "change_worker": [
+            "update code",
+            "deploy version",
+            "rollback version"
+        ]
+    }
+
 
     def set_number_of_compile_workers(self,number):
         self.number_of_compile_workers = number

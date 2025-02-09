@@ -18,10 +18,9 @@ def main(regression_config_file, system_config_file, compile_commands_file, run_
         run_commands = toml.load(run_commands_file)
 
         config = Config(regression_config)
-        config.fill_queues(compile_commands, run_commands)
-        config.set_status_wait(config.compile_wait_queue)
-        config.set_status_wait(config.test_wait_queue)
-
+        config.compile_wait_queue.init_queue(compile_commands)
+        config.compile_wait_queue.set_queue_default(approved='CompRunQMng',adviser='NA',status='wait')
+        
         config.set_number_of_compile_workers(config.compile_wait_queue.get_size())
         config.set_number_of_test_workers(config.test_wait_queue.get_size())
 

@@ -1,7 +1,7 @@
 import sys
 
 # Define the error keywords here
-ERROR_KEYWORDS = ["error", "warning", "fatal","exception","traceback"]
+ERROR_KEYWORDS = ["error", "warning", "fatal","exception","traceback","Timeout reached"]
 
 def parse_log_file(filename):
     try:

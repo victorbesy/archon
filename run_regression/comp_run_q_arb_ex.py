@@ -6,10 +6,15 @@ import subprocess
 import threading
 import concurrent.futures
 from queues import SmartQ
+from queue_utils import SmartQUtils
 from icecream  import ic
 
-class CompRunQArbEx(threading.Thread):
-    _max_timeout = 0
+class CompRunQArbEx(threading.Thread,SmartQUtils):
+    def __init__(self, config, system_config, set_completion_ev):
+        # Initialize parent classes
+        threading.Thread.__init__(self)  # Initialize threading.Thread
+        SmartQUtils.__init__(self, verbose=False)  # Initialize SmartQUtils
+    _max_timeout = 0 
     _makefile_path = ''
     _max_concurrent_task = 0
     _dir_path = ''
@@ -92,11 +97,14 @@ class CompRunQArbEx(threading.Thread):
                 raise ValueError("wait queue does not contain a 'command' key")
 
             if 'approved' in task:
-                approved = task['approved']
+                #approved = task['approved']
+                approved= self.get_approved(task)
             else:
                 raise ValueError("wait queue does not contain an 'approved' key")
-
-            if len(approved) == 0:
+            if 'status' in task:
+                #status = task['status']
+                status = self.get_status(task)
+            if len(approved) == 0 and status == 'execute':
                 task = self._wait_queue.get()
                 subdir = os.path.join(self.config.root_dir, task['subdir'])
                 os.makedirs(subdir, exist_ok=True)

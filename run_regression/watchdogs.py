@@ -2,7 +2,7 @@ import threading
 import time
 from queues import SmartQ
 from icecream import ic
-import sys
+import os
 
 class Watchdog(threading.Thread):
     def __init__(self, config_in, system_config,set_completion_ev):
@@ -92,8 +92,8 @@ class Watchdog(threading.Thread):
             self._wait_queue.print_queue()
             self._run_queue.print_queue()
             self._done_queue.print_queue()
-            #self.config.set_watchdog_eot()
+            self.config.set_watchdog_eot()
             if self.set_completion_ev :
                 self.set_completion_ev.set()
             ic(self._name, self.set_completion_ev.is_set())
-            sys.exit(1)
+            os._exit(1)
