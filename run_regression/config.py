@@ -21,7 +21,7 @@ class Config:
         self.comp_adv_resp_queue = SmartQ(verbose=False,name="comp_adv_resp_queue")
         self.number_of_compile_workers = 0
         self.number_of_test_workers = 0
-        self.advisor_response_dict = {
+        self.adviser_response_dict = {
         "worker_execution": [
             "wait",
             "start",

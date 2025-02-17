@@ -5,7 +5,6 @@ import shutil
 import subprocess
 import threading
 import concurrent.futures
-from queues import SmartQ
 from icecream import ic
 import time
 import random
@@ -14,60 +13,97 @@ import threading
 class SmartQUtils:
     def __init__(self, verbose=False):
         self.verbose = verbose
-        self.method_logging = {
-            'set_adviser': False,
-            'set_status': False,
-            'set_approved': False,
-            'get_adviser': False,
-            'get_status': False,
-            'get_approved': False,
-             'compare': False
+        self.adviser_response_dict = {
+            "worker_execution": [
+                "wait",
+                "start",
+                #"stop",
+                #"pause",
+                #"resume",
+                #"restart",
+                #"kill",
+                #"finish",
+                #"timeout",
+                "NA"
+            ],
+            "get_worker_info": [
+                "get log",
+                "get status",
+                "update state",
+                "NA"
+            ],
+            "worker_resource_config": [
+                "get config",
+                "scale up memory",
+                "scale down memory",
+                "scale up cpu",
+                "scale down cpu",
+                "NA"
+            ],
+            "change_worker": [
+                "update code",
+                "deploy version",
+                "rollback version",
+                "NA"
+            ]
         }
+    def set_waitq_start_time(self, item, time_value):
+        item['process_info']['waitq_start_time'] = time_value
+        ic()
 
-    def log(self, method_name, *args, return_value=None):
-        log_enabled = self.method_logging.get(method_name, self.verbose)
-        if log_enabled:
-            print(f"Object: {getattr(self, '_name', 'Unknown')}, Method: {method_name}")
-            print(f"Arguments: {args}")
-            if return_value is not None:
-                print(f"Returns/Sets: {return_value}")
-            print("----------")
+    def get_waitq_start_time(self, item):
+        return item['process_info']['waitq_start_time']
 
+    def set_runq_start_time(self, item, time_value):
+        item['process_info']['runq_start_time'] = time_value
+        
+    def get_runq_start_time(self, item):
+        return item['process_info']['runq_start_time']
+    
+    def set_doneq_start_time(self, item, time_value):
+        item['process_info']['doneq_start_time'] = time_value
+        
+    def get_doneq_start_time(self, item):
+        return item['process_info']['doneq_start_time']
+    
+    '''
     def set_adviser(self, item, adviser):
         item['adviser'][0] = adviser
-        #self.log('set_adviser', item, adviser, return_value=adviser)
 
+    def get_adviser(self, item):
+        return item['adviser'][0] if item['adviser'] else ''
+    '''
+     
+    def set_adviser_resp(self, item, adviser,adviser_key='worker_execution'):
+        item['adviser_response'][adviser_key] = adviser
+        if self.verbose:
+            print(f"Adviser set to {adviser} for item in {self._name} queue")
+
+    def get_adviser_resp(self, item,adviser_key='worker_execution'):
+        adviser = item['adviser_response'][adviser_key] if item['adviser_response'] else False
+        if self.verbose:
+            print(f"Adviser of item in {self._name} queue: {adviser}")
+        return adviser
+    
     def set_status(self, item, status):
         item['status'][0] = status
-        #self.log('set_status', item, status, return_value=status)
+
+    def get_status(self, item):
+        return item['status'][0] if item['status'] else ''
 
     def set_approved(self, item, approved):
         item['approved'][0] = approved
-        #self.log('set_approved', item, approved, return_value=approved)
-
-    def get_adviser(self, item):
-        adviser = item['adviser'][0] if item['adviser'] else ''
-        #self.log('get_adviser', item, return_value=adviser)
-        return adviser
-
-    def get_status(self, item):
-        status = item['status'][0] if item['status'] else ''
-        #self.log('get_status', item, return_value=status)
-        return status
 
     def get_approved(self, item):
-        approved = item['approved'][0] if item['approved'] else ''
-        #self.log('get_approved', item, return_value=approved)
-        return approved
+        return item['approved'][0] if item['approved'] else ''
 
     def compare(self, item1, item2):
-        #self.log('compare', item1, item2)
         result = item1['command'] == item2['command'] and item1['subdir'] == item2['subdir']
         if self.verbose:
             if result:
                 print(f"Items {item1} and {item2} are equal in 'command' and 'subdir'")
             else:
                 print(f"Items {item1} and {item2} are not equal in 'command' and 'subdir'")
-        #self.log('compare', return_value=result)
+
         return result
     

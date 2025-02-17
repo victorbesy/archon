@@ -11,7 +11,9 @@ export VERILATOR = verilator
 endif
 
 compile_verilator_sv: clean
-	@sleep 5
+	@DELAY=$$(shuf -i 5-7 -n 1); \
+	echo "Sleeping for $$DELAY seconds..."; \
+	sleep $$DELAY
 	${VERILATOR} $(VERILATOR_FLAGS) cs_common.svh $(SHUNT_VERILATOR_FLAGS) top_sim.v --exe $(SIM_MAIN)
 	make -C obj_dir -j -f Vcs_common.mk Vcs_common
 

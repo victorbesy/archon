@@ -1,14 +1,19 @@
-# comp_run_q_arb_ex.py
-
 import os
 import shutil
 import subprocess
 import threading
 import concurrent.futures
 from queues import SmartQ
-from icecream  import ic
+from queue_utils import SmartQUtils
+from icecream import ic
 
-class CompRunQArbEx(threading.Thread):
+class CompRunQArbEx(threading.Thread, SmartQUtils):
+    def __init__(self, config, system_config, set_completion_ev):
+        super().__init__()
+        self.config = config
+        self.timeout_triggered = False
+        self.set_completion_ev = set_completion_ev
+
     _max_timeout = 0
     _makefile_path = ''
     _max_concurrent_task = 0
@@ -17,12 +22,6 @@ class CompRunQArbEx(threading.Thread):
     _run_queue = None
     _done_queue = None
     _name = ''
-
-    def __init__(self, config, system_config,set_completion_ev):
-        super().__init__()
-        self.config = config
-        self.timeout_triggered = False
-        self.set_completion_ev = set_completion_ev
 
     def set_name(self, name):
         self._name = name
@@ -68,14 +67,14 @@ class CompRunQArbEx(threading.Thread):
             if not (self._wait_queue is not None and self._run_queue is not None and self._done_queue is not None):
                 raise ValueError("Queues not properly set up")
 
-            while not self.config.compile_eot and not self.config.watchdog_eot :
+            while not self.config.compile_eot and not self.config.watchdog_eot:
                 size = self._run_queue.get_size()
                 if size < self.get_max_concurrent_task():
                     if not self._wait_queue.is_empty():
                         self.process_task()
                 else:
                     if self._run_queue.is_empty() and self._wait_queue.is_empty() and not self._done_queue.is_empty():
-                        if self.set_completion_ev :
+                        if self.set_completion_ev:
                             self.set_completion_ev.set()
                         self.config.compile_eot = True
 
@@ -84,31 +83,35 @@ class CompRunQArbEx(threading.Thread):
             os._exit(1)
 
     def process_task(self):
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            task = self._wait_queue.peek()
-            if 'command' in task:
-                run_command = task['command']
-            else:
-                raise ValueError("wait queue does not contain a 'command' key")
-            if 'approved' in task:
-                approved = task['approved']
-            else:
-                raise ValueError("wait queue does not contain an 'approved' key")
-            if 'status' in task:
-                status = task['status']
-            if len(approved) == 0 and status == 'execute':
-                task = self._wait_queue.get()
-                subdir = os.path.join(self.config.root_dir, task['subdir'])
-                os.makedirs(subdir, exist_ok=True)
-                if os.path.isdir(self._makefile_path):
-                    for filename in os.listdir(self._makefile_path):
-                        full_file_path = os.path.join(self._makefile_path, filename)
-                        shutil.copy(full_file_path, subdir)
-                else:
-                    shutil.copy(self._makefile_path, subdir)
+        task = self._wait_queue.peek()
+        if 'command' in task:
+            run_command = task['command']
+        else:
+            raise ValueError("Wait queue does not contain a 'command' key")
 
+        if 'approved' in task:
+            approved = self.get_approved(task)
+        else:
+            raise ValueError("Wait queue does not contain an 'approved' key")
+
+        if 'status' in task:
+            status = self.get_status(task)
+
+        if len(approved) == 0 and status == 'execute':
+            task = self._wait_queue.get()
+            subdir = os.path.join(self.config.root_dir, task['subdir'])
+            os.makedirs(subdir, exist_ok=True)
+            if os.path.isdir(self._makefile_path):
+                for filename in os.listdir(self._makefile_path):
+                    full_file_path = os.path.join(self._makefile_path, filename)
+                    shutil.copy(full_file_path, subdir)
+            else:
+                shutil.copy(self._makefile_path, subdir)
+
+            with concurrent.futures.ThreadPoolExecutor() as executor:
                 future = executor.submit(subprocess.run, run_command.split(), cwd=subdir)
                 task['status'] = 'run'
                 task['future'] = future
                 self._run_queue.put(task)
+
 

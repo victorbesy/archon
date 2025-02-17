@@ -200,7 +200,7 @@ class QManager(threading.Thread, SmartQUtils):
             ic()
             ic("get_advice",resp)
             if resp != False:
-                result = self.config.comp_adv_resp_queue.get_adviser(resp)
+                result = self.config.comp_adv_resp_queue.get_adviser_resp(resp)
         self.log('get_advice', return_value=result)
         ic("get_advice",result)
         ic()

@@ -12,50 +12,17 @@ import time
 import random
 
 class QAdviser(threading.Thread, SmartQUtils):
-    def __init__(self, config, system_config, set_completion_ev):
+    def __init__(self, config, system_config, force_to_exit_ev, verbose=False):
         # Initialize parent classes
         threading.Thread.__init__(self)  # Initialize threading.Thread
         SmartQUtils.__init__(self, verbose=False)  # Initialize SmartQUtils
         self._input_queue = None
         self._output_queue = None
         self._name = ''
-
-    def __init__(self, config, system_config, force_to_exit_ev, verbose=False):
-        super().__init__()
         self.config = config
         self.timeout_triggered = False
         self.force_to_exit_ev = force_to_exit_ev
-        self.verbose = verbose
-        self.advisor_response_dict = {
-            "worker_execution": [
-                "wait",
-                "start"
-                #"stop",
-                #"pause",
-                #"resume",
-                #"restart",
-                #"kill",
-                #"finish",
-                #"timeout"
-            ],
-            "get_worker_info": [
-                "get log",
-                "get status",
-                "update state"
-            ],
-            "worker_resource_config": [
-                "get config",
-                "scale up memory",
-                "scale down memory",
-                "scale up cpu",
-                "scale down cpu"
-            ],
-            "change_worker": [
-                "update code",
-                "deploy version",
-                "rollback version"
-            ]
-        }
+        self.verbose = verbose        
 
     def log(self, method_name, *args, return_value=None):
         if self.verbose:
@@ -104,23 +71,22 @@ class QAdviser(threading.Thread, SmartQUtils):
     def process_inputQ(self):
         task = self._input_queue.get()
         self.log("process_inputQ", task)
-        advice = self.get_advisor_response_list("worker_execution")
-        self._input_queue.set_adviser(task,advice)
+        advice = self.get_adviser_response_list("worker_execution")
+        self._input_queue.set_adviser_resp(task,advice)
         self._output_queue.put(task)
-        
-       
+             
 
-    def get_advisor_response_list(self, subsection=None):
-        #print(advisor.get_advisor_response_list("worker_execution"))  # Random word from 'worker_execution'
-        if subsection and subsection in self.advisor_response_dict:
-            responses = self.advisor_response_dict[subsection]
+    def get_adviser_response_list(self, subsection=None):
+        #print(adviser.get_adviser_response_list("worker_execution"))  # Random word from 'worker_execution'
+        if subsection and subsection in self.adviser_response_dict:
+            responses = self.adviser_response_dict[subsection]
         else:
-            responses = [word for sublist in self.advisor_response_dict.values() for word in sublist]
+            responses = [word for sublist in self.adviser_response_dict.values() for word in sublist]
         
         if not responses:
             return_value = None
         else:
             return_value = random.choice(responses)
 
-        self.log("get_advisor_response_list", subsection, return_value=return_value)
+        self.log("get_adviser_response_list", subsection, return_value=return_value)
         return return_value

@@ -1,20 +1,23 @@
-# comp_run_q_arb_ex.py
-
 import os
 import shutil
 import subprocess
 import threading
 import concurrent.futures
+import psutil
+import time
 from queues import SmartQ
 from queue_utils import SmartQUtils
-from icecream  import ic
+from icecream import ic
 
-class CompRunQArbEx(threading.Thread,SmartQUtils):
+
+class CompRunQArbEx(threading.Thread, SmartQUtils):
     def __init__(self, config, system_config, set_completion_ev):
-        # Initialize parent classes
-        threading.Thread.__init__(self)  # Initialize threading.Thread
-        SmartQUtils.__init__(self, verbose=False)  # Initialize SmartQUtils
-    _max_timeout = 0 
+        super().__init__()
+        self.config = config
+        self.timeout_triggered = False
+        self.set_completion_ev = set_completion_ev
+
+    _max_timeout = 0
     _makefile_path = ''
     _max_concurrent_task = 0
     _dir_path = ''
@@ -22,12 +25,6 @@ class CompRunQArbEx(threading.Thread,SmartQUtils):
     _run_queue = None
     _done_queue = None
     _name = ''
-
-    def __init__(self, config, system_config,set_completion_ev):
-        super().__init__()
-        self.config = config
-        self.timeout_triggered = False
-        self.set_completion_ev = set_completion_ev
 
     def set_name(self, name):
         self._name = name
@@ -73,14 +70,14 @@ class CompRunQArbEx(threading.Thread,SmartQUtils):
             if not (self._wait_queue is not None and self._run_queue is not None and self._done_queue is not None):
                 raise ValueError("Queues not properly set up")
 
-            while not self.config.compile_eot and not self.config.watchdog_eot :
+            while not self.config.compile_eot and not self.config.watchdog_eot:
                 size = self._run_queue.get_size()
                 if size < self.get_max_concurrent_task():
                     if not self._wait_queue.is_empty():
                         self.process_task()
                 else:
                     if self._run_queue.is_empty() and self._wait_queue.is_empty() and not self._done_queue.is_empty():
-                        if self.set_completion_ev :
+                        if self.set_completion_ev:
                             self.set_completion_ev.set()
                         self.config.compile_eot = True
 
@@ -89,34 +86,44 @@ class CompRunQArbEx(threading.Thread,SmartQUtils):
             os._exit(1)
 
     def process_task(self):
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            task = self._wait_queue.peek()
-            if 'command' in task:
-                run_command = task['command']
-            else:
-                raise ValueError("wait queue does not contain a 'command' key")
+        task = self._wait_queue.peek()
+        if 'command' in task:
+            run_command = task['command']
+        else:
+            raise ValueError("Wait queue does not contain a 'command' key")
 
-            if 'approved' in task:
-                #approved = task['approved']
-                approved= self.get_approved(task)
-            else:
-                raise ValueError("wait queue does not contain an 'approved' key")
-            if 'status' in task:
-                #status = task['status']
-                status = self.get_status(task)
-            if len(approved) == 0 and status == 'execute':
-                task = self._wait_queue.get()
-                subdir = os.path.join(self.config.root_dir, task['subdir'])
-                os.makedirs(subdir, exist_ok=True)
-                if os.path.isdir(self._makefile_path):
-                    for filename in os.listdir(self._makefile_path):
-                        full_file_path = os.path.join(self._makefile_path, filename)
-                        shutil.copy(full_file_path, subdir)
-                else:
-                    shutil.copy(self._makefile_path, subdir)
+        if 'approved' in task:
+            approved = self.get_approved(task)
+        else:
+            raise ValueError("Wait queue does not contain an 'approved' key")
 
-                future = executor.submit(subprocess.run, run_command.split(), cwd=subdir)
+        if 'status' in task:
+            status = self.get_status(task)
+
+        if len(approved) == 0 and status == 'execute':
+            task = self._wait_queue.get()
+            subdir = os.path.join(self.config.root_dir, task['subdir'])
+            os.makedirs(subdir, exist_ok=True)
+            if os.path.isdir(self._makefile_path):
+                for filename in os.listdir(self._makefile_path):
+                    full_file_path = os.path.join(self._makefile_path, filename)
+                    shutil.copy(full_file_path, subdir)
+            else:
+                shutil.copy(self._makefile_path, subdir)
+
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                process = subprocess.Popen(run_command.split(), cwd=subdir)
+                future = executor.submit(process.wait)
                 task['status'] = 'run'
                 task['future'] = future
+                task['process'] = process
+                task['pid'] = process.pid  # Store the PID
+                self.set_runq_start_time(task,time.time())
                 self._run_queue.put(task)
 
+    def get_thread_pid(self):
+        pids = []
+        for task in self._run_queue.queue:
+            if 'pid' in task:
+                pids.append(task['pid'])
+        return pids

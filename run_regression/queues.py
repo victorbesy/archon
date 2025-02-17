@@ -1,7 +1,9 @@
+
 import threading
 from collections import deque
 from functools import wraps
-
+from queue_utils import SmartQUtils
+import time
 def lock_sync(func):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
@@ -9,9 +11,10 @@ def lock_sync(func):
             return func(self, *args, **kwargs)
     return wrapper
 
-class SmartQ(deque):
+class SmartQ(deque,SmartQUtils):
     def __init__(self, verbose=True, name="NA"):
-        super().__init__()
+        SmartQUtils.__init__(self, verbose=False)  # Initialize SmartQUtils
+        deque.__init__(self)
         self.lock = threading.Lock()
         self.verbose = verbose
         self._name = name
@@ -95,25 +98,34 @@ class SmartQ(deque):
                 'status': '',
                 'approved': '',
                 'adviser': '',
-                'future': ''
+                'future': '',
+                'process_info':{
+                    "pid": 0,
+                    "memory_rss": 0,  # Resident Set Size
+                    "memory_vms": 0,  # Virtual Memory Size
+                    "memory_percent": 0,
+                    "cpu_percent":0,
+                    "cpu_times": 0,
+                    "cpu_num": 0,
+                    "waitq_start_time": 0,
+                    "runq_start_time": 0,
+                    "doneq_start_time": 0
+                }
             })
+            
         if self.verbose:
             print(f"{self._name} queue initialized with commands")
 
-    @lock_sync
-    def set_queue_default(self, approved, adviser, status):
+    @lock_sync    
+    def set_queue_default(self, approved, status):
         for item in self:
-            item['adviser'] = [adviser]
+            #item['adviser'] = [adviser]
             item['status'] = [status]
             item['approved'] = [approved]
+            item['adviser_response'] = {key: 'NA' for key in self.adviser_response_dict.keys()}
+            self.set_waitq_start_time(item, time.time())
         if self.verbose:
-            print(f"Adviser set to {adviser}, approved set to {approved}, and status set to {status} for all items in {self._name} queue")
-
-    @lock_sync
-    def set_adviser(self, item, adviser):
-        item['adviser'] = adviser
-        if self.verbose:
-            print(f"Adviser set to {adviser} for item in {self._name} queue")
+            print(f"adviser_response set to default, approved set to {approved}, and status set to {status} for all items in {self._name} queue")
 
     @lock_sync
     def set_status(self, item, status):
@@ -127,12 +139,6 @@ class SmartQ(deque):
         if self.verbose:
             print(f"Approved set to {approved} for item in {self._name} queue")
 
-    @lock_sync
-    def get_adviser(self, item):
-        adviser = item['adviser'] if item['adviser'] else False
-        if self.verbose:
-            print(f"Adviser of item in {self._name} queue: {adviser}")
-        return adviser
 
     @lock_sync
     def get_status(self, item):

@@ -1,89 +1,354 @@
-ic| queue_manager.py:200 in get_advice() at 17:53:44.854
+ic| queue_utils.py:52 in set_waitq_start_time() at 09:04:36.985
+ic| queue_utils.py:52 in set_waitq_start_time() at 09:04:36.986
+ic| queue_utils.py:52 in set_waitq_start_time() at 09:04:36.986
 ic| self._name: 'CompileWatchdog', temp: False
-ic| self.ic_name: 'CompileWatchdog', temp: False
-|ic | time"get_advice":.time ('get_advice'
-    resp:) - start_time: 0.7544958591461182,  max_timeout: {60
-'adviser': 'wait',
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 0.06910443305969238, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 1.08736252784729, max_timeout: 60
+ic| queue_manager.py:200 in get_advice() at 09:04:38.590
+ic| "get_advice": 'get_advice'
+    resp: {'adviser': '',
+           'adviser_response': {'change_worker': 'NA',
+                                'get_worker_info': 'NA',
+                                'worker_execution': 'start',
+                                'worker_resource_config': 'NA'},
            'approved': ['CompRunQMng'],
            'command': 'make COMP_MAKEARGS=GROUP1',
            'future': '',
+           'process_info': {'cpu_num': 0,
+                            'cpu_percent': 0,
+                            'cpu_times': 0,
+                            'doneq_start_time': 0,
+                            'memory_percent': 0,
+                            'memory_rss': 0,
+                            'memory_vms': 0,
+                            'pid': 0,
+                            'runq_start_time': 0,
+                            'waitq_start_time': 1739801076.9776533},
            'status': ['wait'],
            'subdir': 'module1/Group1/build'}
-ic| 'get_advice', result: 'wait'
-ic| queue_manager.py:206 in get_advice() at 17:53:45.197
-ic| 'process_advice', advice: 'wait'
-ic| queue_manageric| self._name: 'CompileWatchdog.py:200 in get_advice()', temp: False
- at ic17|:53:46.132
- time.ic| time"() - start_time: 1.9476230144500732, max_timeout:get_advice 60
-": 'get_advice'
-    resp: {'adviser': 'start',
+ic| 'get_advice', result: 'start'
+ic| queue_manager.py:206 in get_advice() at 09:04:38.699
+ic| 'process_advice', advice: 'start'
+ic| queue_manager.py:200 in get_advice() at 09:04:38.753
+ic| "get_advice": 'get_advice'
+    resp: {'adviser': '',
+           'adviser_response': {'change_worker': 'NA',
+                                'get_worker_info': 'NA',
+                                'worker_execution': 'wait',
+                                'worker_resource_config': 'NA'},
            'approved': ['CompRunQMng'],
            'command': 'make COMP_MAKEARGS=GROUP2',
            'future': '',
+           'process_info': {'cpu_num': 0,
+                            'cpu_percent': 0,
+                            'cpu_times': 0,
+                            'doneq_start_time': 0,
+                            'memory_percent': 0,
+                            'memory_rss': 0,
+                            'memory_vms': 0,
+                            'pid': 0,
+                            'runq_start_time': 0,
+                            'waitq_start_time': 1739801076.9864135},
            'status': ['wait'],
            'subdir': 'module1/Group2/build'}
-ic| 'get_advice', result: 'start'
-ic| queue_manager.py:206 in get_advice() at 17:53:46.297
-ic| 'process_advice', advice: 'start'
-ic| queue_manager.py:200 in get_advice() at 17:53:47.073
+ic| 'get_advice', result: 'wait'
+ic| queue_manager.py:206 in get_advice() at 09:04:38.881
+ic| 'process_advice', advice: 'wait'
+ic| queue_manager.py:200 in get_advice() at 09:04:39.029
 ic| "get_advice": 'get_advice'
-    resp: {'adviser': 'start',
+    resp: {'adviser': '',
+           'adviser_response': {'change_worker': 'NA',
+                                'get_worker_info': 'NA',
+                                'worker_execution': 'wait',
+                                'worker_resource_config': 'NA'},
            'approved': ['CompRunQMng'],
            'command': 'make COMP_MAKEARGS=GROUP3',
            'future': '',
+           'process_info': {'cpu_num': 0,
+                            'cpu_percent': 0,
+                            'cpu_times': 0,
+                            'doneq_start_time': 0,
+                            'memory_percent': 0,
+                            'memory_rss': 0,
+                            'memory_vms': 0,
+                            'pid': 0,
+                            'runq_start_time': 0,
+                            'waitq_start_time': 1739801076.9868455},
+           'status': ['wait'],
+           'subdir': 'module1/Group3/build'}
+ic| 'get_advice', result: 'wait'
+ic| queue_manager.py:206 in get_advice() at 09:04:39.035
+ic| 'process_advice', advice: 'wait'
+rm -rf obj_dir
+Sleeping for 7 seconds...
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 2.099937677383423, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 3.102142333984375, max_timeout: 60
+ic| queue_manager.py:200 in get_advice() at 09:04:40.661
+ic| "get_advice": 'get_advice'
+    resp: {'adviser': '',
+           'adviser_response': {'change_worker': 'NA',
+                                'get_worker_info': 'NA',
+                                'worker_execution': 'NA',
+                                'worker_resource_config': 'NA'},
+           'approved': ['CompRunQMng'],
+           'command': 'make COMP_MAKEARGS=GROUP2',
+           'future': '',
+           'process_info': {'cpu_num': 0,
+                            'cpu_percent': 0,
+                            'cpu_times': 0,
+                            'doneq_start_time': 0,
+                            'memory_percent': 0,
+                            'memory_rss': 0,
+                            'memory_vms': 0,
+                            'pid': 0,
+                            'runq_start_time': 0,
+                            'waitq_start_time': 1739801076.9864135},
+           'status': ['wait'],
+           'subdir': 'module1/Group2/build'}
+ic| 'get_advice', result: 'NA'
+ic| queue_manager.py:206 in get_advice() at 09:04:40.679
+ic| 'process_advice', advice: 'NA'
+ic| 'process_advice', 'case_', advice: 'NA'
+ic| queue_manager.py:200 in get_advice() at 09:04:40.915
+ic| "get_advice": 'get_advice'
+    resp: {'adviser': '',
+           'adviser_response': {'change_worker': 'NA',
+                                'get_worker_info': 'NA',
+                                'worker_execution': 'start',
+                                'worker_resource_config': 'NA'},
+           'approved': ['CompRunQMng'],
+           'command': 'make COMP_MAKEARGS=GROUP3',
+           'future': '',
+           'process_info': {'cpu_num': 0,
+                            'cpu_percent': 0,
+                            'cpu_times': 0,
+                            'doneq_start_time': 0,
+                            'memory_percent': 0,
+                            'memory_rss': 0,
+                            'memory_vms': 0,
+                            'pid': 0,
+                            'runq_start_time': 0,
+                            'waitq_start_time': 1739801076.9868455},
            'status': ['wait'],
            'subdir': 'module1/Group3/build'}
 ic| 'get_advice', result: 'start'
-ic| queue_manager.py:206 in get_advice() at 17:53:47.118
+ic| queue_manager.py:206 in get_advice() at 09:04:40.921
 ic| 'process_advice', advice: 'start'
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 3.098924160003662, max_timeout: 60
-rm -rf obj_dir
+ic| time.time() - start_time: 4.104964733123779, max_timeout: 60
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 5.966167688369751, max_timeout: 60
-CompDoneQArbEx compile_wait_queue queue:
-{'command': 'make COMP_MAKEARGS=GROUP1', 'subdir': 'module1/Group1/build', 'status': ['wait_adv_resp'], 'approved': ['CompRunQMng'], 'adviser': 'wait', 'future': ''}
-{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': ['execute'], 'approved': [], 'adviser': 'start', 'future': ''}
-CompDoneQArbEx compile_run_queue queue:
-{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'run', 'approved': [], 'adviser': 'start', 'future': <Future at 0x73f45b186db0 state=running>}
-compile_done_queue queue: Empty
-ic| queue_manager.py:200 in get_advice() at 17:53:51.048
+ic| time.time() - start_time: 5.110668182373047, max_timeout: 60
+ic| queue_manager.py:200 in get_advice() at 09:04:42.204
 ic| "get_advice": 'get_advice'
-    resp: {'adviser': 'wait',
+    resp: {'adviser': '',
+           'adviser_response': {'change_worker': 'NA',
+                                'get_worker_info': 'NA',
+                                'worker_execution': 'wait',
+                                'worker_resource_config': 'NA'},
            'approved': ['CompRunQMng'],
-           'command': 'make COMP_MAKEARGS=GROUP1',
+           'command': 'make COMP_MAKEARGS=GROUP2',
            'future': '',
+           'process_info': {'cpu_num': 0,
+                            'cpu_percent': 0,
+                            'cpu_times': 0,
+                            'doneq_start_time': 0,
+                            'memory_percent': 0,
+                            'memory_rss': 0,
+                            'memory_vms': 0,
+                            'pid': 0,
+                            'runq_start_time': 0,
+                            'waitq_start_time': 1739801076.9864135},
            'status': ['wait'],
-           'subdir': 'module1/Group1/build'}
+           'subdir': 'module1/Group2/build'}
 ic| 'get_advice', result: 'wait'
-ic| queue_manager.py:206 in get_advice() at 17:53:51.056
+ic| queue_manager.py:206 in get_advice() at 09:04:42.211
 ic| 'process_advice', advice: 'wait'
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 6.970946311950684, max_timeout: 60
-ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 7.978440046310425, max_timeout: 60
-ic| queue_manager.py:200 in get_advice() at 17:53:53.168
+ic| time.time() - start_time: 6.117552042007446, max_timeout: 60
+ic| queue_manager.py:200 in get_advice() at 09:04:43.408
 ic| "get_advice": 'get_advice'
-    resp: {'adviser': 'start',
+    resp: {'adviser': '',
+           'adviser_response': {'change_worker': 'NA',
+                                'get_worker_info': 'NA',
+                                'worker_execution': 'wait',
+                                'worker_resource_config': 'NA'},
            'approved': ['CompRunQMng'],
-           'command': 'make COMP_MAKEARGS=GROUP1',
+           'command': 'make COMP_MAKEARGS=GROUP2',
            'future': '',
+           'process_info': {'cpu_num': 0,
+                            'cpu_percent': 0,
+                            'cpu_times': 0,
+                            'doneq_start_time': 0,
+                            'memory_percent': 0,
+                            'memory_rss': 0,
+                            'memory_vms': 0,
+                            'pid': 0,
+                            'runq_start_time': 0,
+                            'waitq_start_time': 1739801076.9864135},
            'status': ['wait'],
-           'subdir': 'module1/Group1/build'}
+           'subdir': 'module1/Group2/build'}
+ic| 'get_advice', result: 'wait'
+ic| queue_manager.py:206 in get_advice() at 09:04:43.413
+ic| 'process_advice', advice: 'wait'
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 7.123539447784424, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 8.129276752471924, max_timeout: 60
+ic| queue_manager.py:200 in get_advice() at 09:04:45.944
+ic| "get_advice": 'get_advice'
+    resp: {'adviser': '',
+           'adviser_response': {'change_worker': 'NA',
+                                'get_worker_info': 'NA',
+                                'worker_execution': 'wait',
+                                'worker_resource_config': 'NA'},
+           'approved': ['CompRunQMng'],
+           'command': 'make COMP_MAKEARGS=GROUP2',
+           'future': '',
+           'process_info': {'cpu_num': 0,
+                            'cpu_percent': 0,
+                            'cpu_times': 0,
+                            'doneq_start_time': 0,
+                            'memory_percent': 0,
+                            'memory_rss': 0,
+                            'memory_vms': 0,
+                            'pid': 0,
+                            'runq_start_time': 0,
+                            'waitq_start_time': 1739801076.9864135},
+           'status': ['wait'],
+           'subdir': 'module1/Group2/build'}
+ic| 'get_advice', result: 'wait'
+ic| queue_manager.py:206 in get_advice() at 09:04:45.956
+ic| 'process_advice', advice: 'wait'
+verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 9.132110834121704, max_timeout: 60
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+- Verilator: Built from 0.276 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.175 s (elab=0.001, cvt=0.061, bld=0.000); cpu 0.025 s on 1 threads; alloced 10.301 MB
+make -C obj_dir -j -f Vcs_common.mk Vcs_common
+make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250217_090436/module1/Group1/build/obj_dir'
+make[1]: Warning: File 'Vcs_common__ver.d' has modification time 0.15 s in the future
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
+echo "" > Vcs_common__ALL.verilator_deplist.tmp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 10.13872218132019, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 11.150137186050415, max_timeout: 60
+ic| queue_manager.py:200 in get_advice() at 09:04:48.906
+ic| "get_advice": 'get_advice'
+    resp: {'adviser': '',
+           'adviser_response': {'change_worker': 'NA',
+                                'get_worker_info': 'NA',
+                                'worker_execution': 'NA',
+                                'worker_resource_config': 'NA'},
+           'approved': ['CompRunQMng'],
+           'command': 'make COMP_MAKEARGS=GROUP2',
+           'future': '',
+           'process_info': {'cpu_num': 0,
+                            'cpu_percent': 0,
+                            'cpu_times': 0,
+                            'doneq_start_time': 0,
+                            'memory_percent': 0,
+                            'memory_rss': 0,
+                            'memory_vms': 0,
+                            'pid': 0,
+                            'runq_start_time': 0,
+                            'waitq_start_time': 1739801076.9864135},
+           'status': ['wait'],
+           'subdir': 'module1/Group2/build'}
+ic| 'get_advice', result: 'NA'
+ic| queue_manager.py:206 in get_advice() at 09:04:48.911
+ic| 'process_advice', advice: 'NA'
+ic| 'process_advice', 'case_', advice: 'NA'
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 12.153959512710571, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 13.15665888786316, max_timeout: 60
+g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
+make[1]: warning:  Clock skew detected.  Your build may be incomplete.
+rm Vcs_common__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250217_090436/module1/Group1/build/obj_dir'
+ic| queue_manager.py:200 in get_advice() at 09:04:50.848
+ic| "get_advice": 'get_advice'
+    resp: {'adviser': '',
+           'adviser_response': {'change_worker': 'NA',
+                                'get_worker_info': 'NA',
+                                'worker_execution': 'wait',
+                                'worker_resource_config': 'NA'},
+           'approved': ['CompRunQMng'],
+           'command': 'make COMP_MAKEARGS=GROUP2',
+           'future': '',
+           'process_info': {'cpu_num': 0,
+                            'cpu_percent': 0,
+                            'cpu_times': 0,
+                            'doneq_start_time': 0,
+                            'memory_percent': 0,
+                            'memory_rss': 0,
+                            'memory_vms': 0,
+                            'pid': 0,
+                            'runq_start_time': 0,
+                            'waitq_start_time': 1739801076.9864135},
+           'status': ['wait'],
+           'subdir': 'module1/Group2/build'}
+ic| 'get_advice', result: 'wait'
+ic| queue_manager.py:206 in get_advice() at 09:04:50.853
+ic| 'process_advice', advice: 'wait'
+make: Warning: File 'Sim.mk' has modification time 0.087 s in the future
+rm -rf obj_dir
+Sleeping for 6 seconds...
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 14.15916633605957, max_timeout: 60
+ic| queue_manager.py:200 in get_advice() at 09:04:51.394
+ic| "get_advice": 'get_advice'
+    resp: {'adviser': '',
+           'adviser_response': {'change_worker': 'NA',
+                                'get_worker_info': 'NA',
+                                'worker_execution': 'start',
+                                'worker_resource_config': 'NA'},
+           'approved': ['CompRunQMng'],
+           'command': 'make COMP_MAKEARGS=GROUP2',
+           'future': '',
+           'process_info': {'cpu_num': 0,
+                            'cpu_percent': 0,
+                            'cpu_times': 0,
+                            'doneq_start_time': 0,
+                            'memory_percent': 0,
+                            'memory_rss': 0,
+                            'memory_vms': 0,
+                            'pid': 0,
+                            'runq_start_time': 0,
+                            'waitq_start_time': 1739801076.9864135},
+           'status': ['wait'],
+           'subdir': 'module1/Group2/build'}
 ic| 'get_advice', result: 'start'
-ic| queue_manager.py:206 in get_advice() at 17:53:53.177
+ic| queue_manager.py:206 in get_advice() at 09:04:51.399
 ic| 'process_advice', advice: 'start'
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 8.98642873764038, max_timeout: 60
+ic| time.time() - start_time: 15.163360595703125, max_timeout: 60
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 9.992652177810669, max_timeout: 60
+ic| time.time() - start_time: 16.169593572616577, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 17.179523229599, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 18.187561988830566, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 20.081719160079956, max_timeout: 60
 verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp
 - V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
-- Verilator: Built from 0.275 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
-- Verilator: Walltime 0.140 s (elab=0.001, cvt=0.046, bld=0.000); cpu 0.021 s on 1 threads; alloced 10.176 MB
+- Verilator: Built from 0.276 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.129 s (elab=0.001, cvt=0.039, bld=0.000); cpu 0.022 s on 1 threads; alloced 10.297 MB
 make -C obj_dir -j -f Vcs_common.mk Vcs_common
-make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250209_175344/module1/Group2/build/obj_dir'
-make[1]: Warning: File 'Vcs_common__ver.d' has modification time 0.37 s in the future
+make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250217_090436/module1/Group3/build/obj_dir'
 g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
@@ -93,90 +358,37 @@ python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=inclu
 echo "" > Vcs_common__ALL.verilator_deplist.tmp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 10.997706890106201, max_timeout: 60
+ic| time.time() - start_time: 21.100157499313354, max_timeout: 60
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 12.002586841583252, max_timeout: 60
+ic| time.time() - start_time: 22.10634446144104, max_timeout: 60
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 13.351528644561768, max_timeout: 60
+ic| time.time() - start_time: 23.112553119659424, max_timeout: 60
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 14.355104446411133, max_timeout: 60
+ic| time.time() - start_time: 24.1181583404541, max_timeout: 60
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 25.12033748626709, max_timeout: 60
 g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
-ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 15.35811185836792, max_timeout: 60
-make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 rm Vcs_common__ALL.verilator_deplist.tmp
-make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250209_175344/module1/Group2/build/obj_dir'
-make: Warning: File 'Sim.mk' has modification time 0.27 s in the future
-rm -rf obj_dir
-CompDoneQArbEx compile_wait_queue queue:
-{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': ['execute'], 'approved': [], 'adviser': 'start', 'future': ''}
-CompDoneQArbEx compile_run_queue queue:
-{'command': 'make COMP_MAKEARGS=GROUP1', 'subdir': 'module1/Group1/build', 'status': 'run', 'approved': [], 'adviser': 'start', 'future': <Future at 0x73f45b1c6360 state=running>}
-CompDoneQArbEx compile_done_queue queue:
-{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'ok', 'approved': [], 'adviser': 'start', 'future': <Future at 0x73f45b186db0 state=finished returned CompletedProcess>}
-ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 16.36187171936035, max_timeout: 60
-ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 17.36907196044922, max_timeout: 60
-ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 18.379940032958984, max_timeout: 60
-ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 19.385465145111084, max_timeout: 60
-ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 20.3907527923584, max_timeout: 60
-verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp
-- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
-- Verilator: Built from 0.275 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
-- Verilator: Walltime 0.124 s (elab=0.001, cvt=0.036, bld=0.000); cpu 0.021 s on 1 threads; alloced 10.176 MB
-make -C obj_dir -j -f Vcs_common.mk Vcs_common
-make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250209_175344/module1/Group1/build/obj_dir'
-make[1]: Warning: File 'Vcs_common__ver.d' has modification time 0.9 s in the future
-g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
-python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
-echo "" > Vcs_common__ALL.verilator_deplist.tmp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
-ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 21.39544153213501, max_timeout: 60
-ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 22.405515909194946, max_timeout: 60
-ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 23.40807580947876, max_timeout: 60
-ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 24.411922454833984, max_timeout: 60
-g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
-make[1]: warning:  Clock skew detected.  Your build may be incomplete.
-rm Vcs_common__ALL.verilator_deplist.tmp
-make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250209_175344/module1/Group1/build/obj_dir'
+make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250217_090436/module1/Group3/build/obj_dir'
 make: warning:  Clock skew detected.  Your build may be incomplete.
-make: Warning: File 'Sim.mk' has modification time 0.87 s in the future
 rm -rf obj_dir
+Sleeping for 5 seconds...
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 25.415542125701904, max_timeout: 60
-compile_wait_queue queue: Empty
-CompDoneQArbEx compile_run_queue queue:
-{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'run', 'approved': [], 'adviser': 'start', 'future': <Future at 0x73f45b187410 state=running>}
-CompDoneQArbEx compile_done_queue queue:
-{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'ok', 'approved': [], 'adviser': 'start', 'future': <Future at 0x73f45b186db0 state=finished returned CompletedProcess>}
-{'command': 'make COMP_MAKEARGS=GROUP1', 'subdir': 'module1/Group1/build', 'status': 'ok', 'approved': [], 'adviser': 'start', 'future': <Future at 0x73f45b1c6360 state=finished returned CompletedProcess>}
+ic| time.time() - start_time: 26.12263298034668, max_timeout: 60
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 26.421849727630615, max_timeout: 60
+ic| time.time() - start_time: 27.128369092941284, max_timeout: 60
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 27.428550004959106, max_timeout: 60
+ic| time.time() - start_time: 28.135788202285767, max_timeout: 60
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 28.434993267059326, max_timeout: 60
+ic| time.time() - start_time: 29.14065432548523, max_timeout: 60
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 29.44188404083252, max_timeout: 60
+ic| time.time() - start_time: 30.145709991455078, max_timeout: 60
 verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp
 - V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
-- Verilator: Built from 0.275 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
-- Verilator: Walltime 0.130 s (elab=0.001, cvt=0.044, bld=0.000); cpu 0.022 s on 1 threads; alloced 10.180 MB
+- Verilator: Built from 0.276 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.127 s (elab=0.001, cvt=0.039, bld=0.000); cpu 0.023 s on 1 threads; alloced 10.301 MB
 make -C obj_dir -j -f Vcs_common.mk Vcs_common
-make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250209_175344/module1/Group3/build/obj_dir'
-make[1]: Warning: File 'Vcs_common__ver.d' has modification time 1.3 s in the future
+make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250217_090436/module1/Group2/build/obj_dir'
 g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
@@ -186,27 +398,102 @@ python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=inclu
 echo "" > Vcs_common__ALL.verilator_deplist.tmp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 30.448190450668335, max_timeout: 60
+ic| time.time() - start_time: 31.15000629425049, max_timeout: 60
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 31.4595205783844, max_timeout: 60
+ic| time.time() - start_time: 32.15728425979614, max_timeout: 60
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 33.123170375823975, max_timeout: 60
+ic| time.time() - start_time: 33.58454966545105, max_timeout: 60
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 34.66267967224121, max_timeout: 60
+ic| time.time() - start_time: 35.20593619346619, max_timeout: 60
 ic| self._name: 'CompileWatchdog', temp: False
-ic| time.time() - start_time: 35.665467739105225, max_timeout: 60
+ic| time.time() - start_time: 36.20855736732483, max_timeout: 60
 g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
-make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 rm Vcs_common__ALL.verilator_deplist.tmp
-make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250209_175344/module1/Group3/build/obj_dir'
-make: warning:  Clock skew detected.  Your build may be incomplete.
+make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250217_090436/module1/Group2/build/obj_dir'
+ic| self._name: 'CompileWatchdog', temp: False
+ic| time.time() - start_time: 37.22061085700989, max_timeout: 60
+Process Information has changed:
+pid: 42029
+memory_rss: 2228224
+memory_vms: 3141632
+memory_percent: 0.026751774026191166
+cpu_percent: 0.0
+cpu_times: pcputimes(user=0.0, system=0.0, children_user=0.0, children_system=0.0, iowait=0.0)
+cpu_num: 0
+Process information for PID 42029 has not changed.
+Process information for PID 42029 has not changed.
+Process information for PID 42029 has not changed.
+Process information for PID 42029 has not changed.
+Process information for PID 42029 has not changed.
+Process Information has changed:
+pid: 42029
+memory_rss: 2228224
+memory_vms: 3141632
+memory_percent: 0.026751774026191166
+cpu_percent: 0.0
+cpu_times: pcputimes(user=0.0, system=0.0, children_user=0.07, children_system=0.01, iowait=0.0)
+cpu_num: 2
+Process information for PID 42029 has not changed.
+Process information for PID 42029 has not changed.
+Process information for PID 42029 has not changed.
+Process 42029 does not exist (NoSuchProcess).
+Process Information has changed:
+pid: 42073
+memory_rss: 2228224
+memory_vms: 3141632
+memory_percent: 0.026751774026191166
+cpu_percent: 0.0
+cpu_times: pcputimes(user=0.0, system=0.0, children_user=0.0, children_system=0.0, iowait=0.0)
+cpu_num: 0
+Process information for PID 42073 has not changed.
+Process information for PID 42073 has not changed.
+Process information for PID 42073 has not changed.
+Process information for PID 42073 has not changed.
+Process Information has changed:
+pid: 42073
+memory_rss: 2228224
+memory_vms: 3141632
+memory_percent: 0.026751774026191166
+cpu_percent: 0.0
+cpu_times: pcputimes(user=0.0, system=0.0, children_user=0.1, children_system=0.0, iowait=0.0)
+cpu_num: 0
+Process information for PID 42073 has not changed.
+Process information for PID 42073 has not changed.
+Process information for PID 42073 has not changed.
+Process information for PID 42073 has not changed.
+Process 42073 does not exist (NoSuchProcess).
+Process Information has changed:
+pid: 42117
+memory_rss: 2228224
+memory_vms: 3141632
+memory_percent: 0.026751774026191166
+cpu_percent: 0.0
+cpu_times: pcputimes(user=0.0, system=0.0, children_user=0.0, children_system=0.0, iowait=0.0)
+cpu_num: 3
+Process information for PID 42117 has not changed.
+Process information for PID 42117 has not changed.
+Process information for PID 42117 has not changed.
+Process Information has changed:
+pid: 42117
+memory_rss: 2228224
+memory_vms: 3141632
+memory_percent: 0.026751774026191166
+cpu_percent: 0.0
+cpu_times: pcputimes(user=0.0, system=0.0, children_user=0.09, children_system=0.01, iowait=0.0)
+cpu_num: 3
+Process information for PID 42117 has not changed.
+Process information for PID 42117 has not changed.
+Process information for PID 42117 has not changed.
+Process information for PID 42117 has not changed.
+Process information for PID 42117 has not changed.
+Process 42117 does not exist (NoSuchProcess).
 Graceful Shutdown:
 compile_wait_queue queue: Empty
 compile_run_queue queue: Empty
 Compile Done: compile_done_queue queue:
-{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'ok', 'approved': [], 'adviser': 'start', 'future': <Future at 0x73f45b186db0 state=finished returned CompletedProcess>}
-{'command': 'make COMP_MAKEARGS=GROUP1', 'subdir': 'module1/Group1/build', 'status': 'ok', 'approved': [], 'adviser': 'start', 'future': <Future at 0x73f45b1c6360 state=finished returned CompletedProcess>}
-{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'ok', 'approved': [], 'adviser': 'start', 'future': <Future at 0x73f45b187410 state=finished returned CompletedProcess>}
+{'command': 'make COMP_MAKEARGS=GROUP1', 'subdir': 'module1/Group1/build', 'status': 'ok', 'approved': [], 'adviser': '', 'future': <Future at 0x7bb31081f5c0 state=finished returned int>, 'process_info': {'pid': 42029, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.026751774026191166, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=0.07, children_system=0.01, iowait=0.0), 'cpu_num': 2, 'waitq_start_time': 1739801076.9776533, 'runq_start_time': 1739801079.0790262, 'doneq_start_time': 1739801090.6109304}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP1']>, 'pid': 42029}
+{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'ok', 'approved': [], 'adviser': '', 'future': <Future at 0x7bb30fba99a0 state=finished returned int>, 'process_info': {'pid': 42073, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.026751774026191166, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=0.1, children_system=0.0, iowait=0.0), 'cpu_num': 0, 'waitq_start_time': 1739801076.9868455, 'runq_start_time': 1739801090.8941565, 'doneq_start_time': 1739801103.0315259}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP3']>, 'pid': 42073}
+{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'ok', 'approved': [], 'adviser': '', 'future': <Future at 0x7bb30fbab320 state=finished returned int>, 'process_info': {'pid': 42117, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.026751774026191166, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=0.09, children_system=0.01, iowait=0.0), 'cpu_num': 3, 'waitq_start_time': 1739801076.9864135, 'runq_start_time': 1739801102.7510655, 'doneq_start_time': 1739801114.540138}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP2']>, 'pid': 42117}
 PASS:  config.compile_run_queue is empty
 PASS:  config.compile_wait_queue is empty
 End of Regression

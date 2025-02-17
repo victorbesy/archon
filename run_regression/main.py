@@ -19,7 +19,8 @@ def main(regression_config_file, system_config_file, compile_commands_file, run_
 
         config = Config(regression_config)
         config.compile_wait_queue.init_queue(compile_commands)
-        config.compile_wait_queue.set_queue_default(approved='CompRunQMng',adviser='NA',status='wait')
+        config.compile_wait_queue.set_queue_default(approved='CompRunQMng',status='wait')
+
         
         config.set_number_of_compile_workers(config.compile_wait_queue.get_size())
         config.set_number_of_test_workers(config.test_wait_queue.get_size())
