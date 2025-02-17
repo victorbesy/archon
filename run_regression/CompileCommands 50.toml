@@ -1,0 +1,202 @@
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP1"
+subdir = "module1/Group1/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP2"
+subdir = "module1/Group2/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP3"
+subdir = "module1/Group3/build"
+
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP4"
+subdir = "module1/Group4/build"
+
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP5"
+subdir = "module1/Group5/build"
+
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP6"
+subdir = "module1/Group6/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP7"
+subdir = "module1/Group7/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP8"
+subdir = "module1/Group8/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP9"
+subdir = "module1/Group9/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP10"
+subdir = "module1/Group10/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP11"
+subdir = "module1/Group11/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP12"
+subdir = "module1/Group12/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP13"
+subdir = "module1/Group13/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP14"
+subdir = "module1/Group14/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP15"
+subdir = "module1/Group15/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP16"
+subdir = "module1/Group16/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP17"
+subdir = "module1/Group17/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP18"
+subdir = "module1/Group18/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP19"
+subdir = "module1/Group19/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP20"
+subdir = "module1/Group20/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP21"
+subdir = "module1/Group21/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP22"
+subdir = "module1/Group22/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP23"
+subdir = "module1/Group23/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP24"
+subdir = "module1/Group24/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP25"
+subdir = "module1/Group25/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP26"
+subdir = "module1/Group26/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP27"
+subdir = "module1/Group27/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP28"
+subdir = "module1/Group28/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP29"
+subdir = "module1/Group29/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP30"
+subdir = "module1/Group30/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP31"
+subdir = "module1/Group31/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP32"
+subdir = "module1/Group32/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP33"
+subdir = "module1/Group33/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP34"
+subdir = "module1/Group34/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP35"
+subdir = "module1/Group35/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP36"
+subdir = "module1/Group36/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP37"
+subdir = "module1/Group37/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP38"
+subdir = "module1/Group38/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP39"
+subdir = "module1/Group39/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP40"
+subdir = "module1/Group40/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP41"
+subdir = "module1/Group41/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP42"
+subdir = "module1/Group42/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP43"
+subdir = "module1/Group43/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP44"
+subdir = "module1/Group44/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP45"
+subdir = "module1/Group45/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP46"
+subdir = "module1/Group46/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP47"
+subdir = "module1/Group47/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP48"
+subdir = "module1/Group48/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP49"
+subdir = "module1/Group49/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP50"
+subdir = "module1/Group50/build"
