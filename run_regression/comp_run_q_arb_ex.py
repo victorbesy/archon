@@ -2,7 +2,7 @@ import os
 import shutil
 import subprocess
 import threading
-import concurrent.futures
+import multiprocessing
 import psutil
 import time
 from queues import SmartQ
@@ -16,6 +16,7 @@ class CompRunQArbEx(threading.Thread, SmartQUtils):
         self.config = config
         self.timeout_triggered = False
         self.set_completion_ev = set_completion_ev
+        self.pool = None  # Initialize pool as None
 
     _max_timeout = 0
     _makefile_path = ''
@@ -70,6 +71,8 @@ class CompRunQArbEx(threading.Thread, SmartQUtils):
             if not (self._wait_queue is not None and self._run_queue is not None and self._done_queue is not None):
                 raise ValueError("Queues not properly set up")
 
+            self.pool = multiprocessing.Pool(processes=self.get_max_concurrent_task())  # Initialize pool safely
+
             while not self.config.compile_eot and not self.config.watchdog_eot:
                 size = self._run_queue.get_size()
                 if size < self.get_max_concurrent_task():
@@ -80,7 +83,6 @@ class CompRunQArbEx(threading.Thread, SmartQUtils):
                         if self.set_completion_ev:
                             self.set_completion_ev.set()
                         self.config.compile_eot = True
-
         except ValueError as CompRunQArbEx_error:
             print(f"{self._name}:: Error in CompRunQArbEx: {CompRunQArbEx_error}")
             os._exit(1)
@@ -104,6 +106,7 @@ class CompRunQArbEx(threading.Thread, SmartQUtils):
             task = self._wait_queue.get()
             subdir = os.path.join(self.config.root_dir, task['subdir'])
             os.makedirs(subdir, exist_ok=True)
+
             if os.path.isdir(self._makefile_path):
                 for filename in os.listdir(self._makefile_path):
                     full_file_path = os.path.join(self._makefile_path, filename)
@@ -111,15 +114,16 @@ class CompRunQArbEx(threading.Thread, SmartQUtils):
             else:
                 shutil.copy(self._makefile_path, subdir)
 
-            with concurrent.futures.ThreadPoolExecutor() as executor:
-                process = subprocess.Popen(run_command.split(), cwd=subdir)
-                future = executor.submit(process.wait)
-                task['status'] = 'run'
-                task['future'] = future
-                task['process'] = process
-                task['pid'] = process.pid  # Store the PID
-                self.set_runq_start_time(task,time.time())
-                self._run_queue.put(task)
+            process = subprocess.Popen(run_command.split(), cwd=subdir)
+            
+            
+            task['status'] = 'run'
+            #task['future'] = future
+            task['process'] = process
+            task['pid'] = process.pid
+            ic("Debug pid ",task['pid'],task)
+            self.set_runq_start_time(task, time.time())
+            self._run_queue.put(task)
 
     def get_thread_pid(self):
         pids = []

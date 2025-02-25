@@ -1,0 +1,13 @@
+command,subdir,status,approved,adviser,process,process_info,,,,,,,,,,,,,,,adviser_response,,,pid
+,,,,,,pid,memory,,,cpu,,waitq_start_time,runq_start_time,doneq_start_time,cpu_times,cpu_times,,,,,get_worker_info,worker_resource_config,change_worker,
+,,,,,,,rss,vms,percent,percent,num,,,,cpu_times_user,system,children_user,children_system,,,,,,
+make COMP_MAKEARGS=GROUP1,module1/Group1/build,ok,,,"<Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP1']>",33279,2228224,3141632,0.026751748,0,3,1740347002,1740347013,1740347036,0,0,20.52,1.62,0,start,NA,NA,NA,33279
+make COMP_MAKEARGS=GROUP5,module1/Group5/build,ok,,,"<Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP5']>",33284,2228224,3141632,0.026751748,0,0,1740347002,1740347013,1740347056,0,0,18.72,1.17,0,start,NA,NA,NA,33284
+make COMP_MAKEARGS=GROUP2,module1/Group2/build,ok,,,"<Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP2']>",33290,2228224,3141632,0.026751748,0,2,1740347002,1740347021,1740347071,0,0,18.75,1.11,0,start,NA,NA,NA,33290
+make COMP_MAKEARGS=GROUP4,module1/Group4/build,ok,,,"<Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP4']>",33346,2228224,3141632,0.026751748,0,3,1740347002,1740347036,1740347091,0,0,21.32,1.28,0,start,NA,NA,NA,33346
+make COMP_MAKEARGS=GROUP8,module1/Group8/build,ok,,,"<Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP8']>",0,0,0,0,0,0,1740347002,1740347056,1740347091,0,0,0,0,0,start,NA,NA,NA,33389
+make COMP_MAKEARGS=GROUP10,module1/Group10/build,ok,,,"<Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP10']>",33432,2228224,3141632,0.026751748,0,0,1740347002,1740347071,1740347125,0,0,0.11,0.01,0,start,NA,NA,NA,33432
+make COMP_MAKEARGS=GROUP9,module1/Group9/build,ok,,,"<Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP9']>",33513,2228224,3141632,0.026751748,0,0,1740347002,1740347092,1740347151,0,0,20.26,1.25,0,start,NA,NA,NA,33513
+make COMP_MAKEARGS=GROUP3,module1/Group3/build,ok,,,"<Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP3']>",0,0,0,0,0,0,1740347002,1740347092,1740347151,0,0,0,0,0,start,NA,NA,NA,33518
+make COMP_MAKEARGS=GROUP6,module1/Group6/build,ok,,,"<Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP6']>",33602,2228224,3141632,0.026751748,0,3,1740347002,1740347125,1740347183,0,0,20.15,1.3,0,start,NA,NA,NA,33602
+make COMP_MAKEARGS=GROUP7,module1/Group7/build,ok,,,"<Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP7']>",33645,2228224,3141632,0.026751748,0,3,1740347002,1740347151,1740347198,0,0,20.38,1.3,0,start,NA,NA,NA,33645

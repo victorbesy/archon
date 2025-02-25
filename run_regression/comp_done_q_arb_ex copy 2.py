@@ -49,12 +49,12 @@ class CompDoneQArbEx(threading.Thread, SmartQUtils):
         return process.poll() is None  # Returns True if the process is still running
 
     def _update_process_info(self, entry):
-        """Helper to update process_info of a given entry."""
-        process_info = self.get_process_info(entry['pid'])
-        if process_info is not None:
-            for key in entry['process_info']:
-                if key in process_info:
-                    entry['process_info'][key] = process_info[key]
+    """Helper to update process_info of a given entry."""
+    process_info = self.get_process_info(entry['pid'])
+    if process_info is not None:
+        for key in entry['process_info']:
+            if key in process_info:
+                entry['process_info'][key] = process_info[key]
 
     def run(self):
         while not self.config.compile_eot:

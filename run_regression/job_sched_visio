@@ -1,0 +1,53 @@
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import datetime
+import random
+
+def visualize_schedule(jobs):
+    fig, ax = plt.subplots(figsize=(10, len(jobs) * 0.5))
+    
+    y_positions = range(len(jobs))
+    colors = {'waiting': 'orange', 'running': 'green'}
+    
+    for i, job in enumerate(jobs):
+        process_info = job['process_info']
+        wait_start = process_info['waitq_start_time']
+        run_start = process_info['runq_start_time']
+        done_time = process_info['doneq_start_time']
+        
+        wait_time = run_start - wait_start
+        run_time = done_time - run_start
+        total_time = done_time - wait_start
+        
+        ax.broken_barh([(wait_start, wait_time)], (i - 0.3, 0.6), facecolors=colors['waiting'])
+        ax.broken_barh([(run_start, run_time)], (i - 0.3, 0.6), facecolors=colors['running'])
+        
+        ax.text(wait_start + wait_time / 2, i, f'Wait: {wait_time:.2f}', va='center', ha='center', color='black')
+        ax.text(run_start + run_time / 2, i, f'Run: {run_time:.2f}', va='center', ha='center', color='white')
+        ax.text(done_time + 1, i, f'Total: {total_time:.2f}', va='center', ha='left', color='blue')
+    
+    ax.set_yticks(y_positions)
+    ax.set_yticklabels([job['subdir'] for job in jobs])
+    ax.set_xlabel("Time (seconds)")
+    ax.set_title("Job Schedule Visualization")
+    
+    legend_patches = [mpatches.Patch(color=colors[key], label=key.capitalize()) for key in colors]
+    ax.legend(handles=legend_patches)
+    
+    plt.show()
+
+# Sample job data
+jobs = [
+    {'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'ok',
+     'process_info': {'pid': 4198, 'waitq_start_time': 1739813636.3893342, 'runq_start_time': 1739813640.164074,
+                      'doneq_start_time': 1739813655.3696194}},
+    {'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'ok',
+     'process_info': {'pid': 4200, 'waitq_start_time': 1739813642.1253342, 'runq_start_time': 1739813645.789074,
+                      'doneq_start_time': 1739813660.5736194}},
+    {'command': 'make COMP_MAKEARGS=GROUP4', 'subdir': 'module1/Group4/build', 'status': 'ok',
+     'process_info': {'pid': 4202, 'waitq_start_time': 1739813650.5393342, 'runq_start_time': 1739813654.234074,
+                      'doneq_start_time': 1739813675.9656194}},
+]
+
+
+visualize_schedule(jobs)

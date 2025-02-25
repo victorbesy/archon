@@ -10,3 +10,34 @@ subdir = "module1/Group2/build"
 command = "make COMP_MAKEARGS=GROUP3"
 subdir = "module1/Group3/build"
 
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP4"
+subdir = "module1/Group4/build"
+
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP5"
+subdir = "module1/Group5/build"
+
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP6"
+subdir = "module1/Group6/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP7"
+subdir = "module1/Group7/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP8"
+subdir = "module1/Group8/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP9"
+subdir = "module1/Group9/build"
+
+[[commands]]
+command = "make COMP_MAKEARGS=GROUP10"
+subdir = "module1/Group10/build"
+

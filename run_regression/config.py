@@ -80,7 +80,7 @@ class Config:
                 'status': '',
                 'approved': ['CompRunQMng'],
                 'adviser': '',
-                'future': ''
+                'process': ''
             })
         for command in run_commands['commands']:
             self.test_wait_queue.put({
@@ -89,7 +89,7 @@ class Config:
                 'status': '',
                 'approved': ['ArtRunQMng'],
                 'adviser': '',
-                'future': ''
+                'process': ''
             })
 
     def set_status_wait(self, q):

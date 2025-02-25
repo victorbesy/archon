@@ -12,8 +12,8 @@ port = 4350
 [script]
 compile_makefile = "/media/sf_workspace/archon/test_sv/"
 test_makefile = "/media/sf_workspace/archon/test_sv/Makedir"
-concurrent_compile = 2
-concurrent_run = 3
+concurrent_compile = 3
+concurrent_run = 2
 licenses = { "VCS" = 10 }
-max_timeout_compile = 60
+max_timeout_compile = 360
 max_timeout_test =  10

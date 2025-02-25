@@ -17,7 +17,7 @@ class SmartQUtils:
             "worker_execution": [
                 "wait",
                 "start",
-                #"stop",
+                "stop",
                 #"pause",
                 #"resume",
                 #"restart",
@@ -49,7 +49,7 @@ class SmartQUtils:
         }
     def set_waitq_start_time(self, item, time_value):
         item['process_info']['waitq_start_time'] = time_value
-        ic()
+ 
 
     def get_waitq_start_time(self, item):
         return item['process_info']['waitq_start_time']

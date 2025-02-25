@@ -109,7 +109,10 @@ def main(regression_config_file, system_config_file, compile_commands_file, run_
             if (not config.compile_wait_queue.is_empty()):
                 print("ERROR:  config.compile_wait_queue is not empty")
             else:
-                print("PASS:  config.compile_wait_queue is empty")
+                print("PASS:  config.compile_wait_queue is empty") 
+        config.compile_done_queue.visualize_schedule()                 
+        config.compile_done_queue.save_to_csv("/media/sf_workspace/archon/run_regression/compile_done_queue.csv")
+
         print("End of Regression")
 
     except ValueError as error:
