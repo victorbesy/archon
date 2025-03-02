@@ -121,7 +121,7 @@ class CompRunQArbEx(threading.Thread, SmartQUtils):
             #task['future'] = future
             task['process'] = process
             task['pid'] = process.pid
-            ic("Debug pid ",task['pid'],task)
+            #ic("Debug pid ",task['pid'],task)
             self.set_runq_start_time(task, time.time())
             self._run_queue.put(task)
 

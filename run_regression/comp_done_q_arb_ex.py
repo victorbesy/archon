@@ -49,7 +49,7 @@ class CompDoneQArbEx(threading.Thread, SmartQUtils):
         return process.poll() is None  # Returns True if the process is still running
 
     def _update_process_info(self, entry):
-        """Helper to update process_info of a given entry."""
+        """update process_info of a given entry."""
         process_info = self.get_process_info(entry['pid'])
         if process_info is not None:
             for key in entry['process_info']:
@@ -83,7 +83,7 @@ class CompDoneQArbEx(threading.Thread, SmartQUtils):
                 self._done_queue.put(current_entry)
             else:
                 # Process is still running.
-                print(f"Process {pid} is still running...")
+                #print(f"Process {pid} is still running...")
                 time.sleep(delay)
 
             # Check if all expected processes are done.
@@ -109,7 +109,7 @@ class CompDoneQArbEx(threading.Thread, SmartQUtils):
                 "cpu_times": p.cpu_times(),
                 "cpu_num": p.cpu_num()
             }
-            ic("Debug process_info",pid,process_info,"\n")
+            #ic("Debug process_info",pid,process_info,"\n")
             updated_info = {}
             previous_info = self.previous_process_info.get(pid, {})
 
@@ -125,14 +125,14 @@ class CompDoneQArbEx(threading.Thread, SmartQUtils):
 
             # Check if there's any difference between updated_info and previous_info
             if previous_info != updated_info:
-                ic("Debug updated_info",previous_info,updated_info,"\n")
+                #ic("Debug updated_info",previous_info,updated_info,"\n")
                 self.previous_process_info[pid] = updated_info
-                print("Process Information has changed:")
-                for key, value in updated_info.items():
-                    print(f"{key}: {value}")
+                #print("Process Information has changed:")
+                #for key, value in updated_info.items():
+                #    print(f"{key}: {value}")
                 return updated_info
             else:
-                print(f"Process information for PID {pid} has not changed.")
+                #print(f"Process information for PID {pid} has not changed.")
                 return None
 
         except psutil.NoSuchProcess:

@@ -76,13 +76,13 @@ class Watchdog(threading.Thread):
         start_time = time.time()
         max_timeout = self.get_max_timeout()
         temp = self.update_eot()
-        ic(self._name,temp)
+        #ic(self._name,temp)
         while time.time() - start_time < max_timeout and not self.update_eot():
             if self._stop_event.is_set():
                 break
             temp = self.update_eot()
-            ic(self._name,temp)
-            ic(time.time() - start_time, max_timeout)
+            #ic(self._name,temp)
+            #ic(time.time() - start_time, max_timeout)
             if self._start == 0:
                 max_timeout += 1
             time.sleep(1)  # Sleep for a short period to avoid busy waiting
@@ -95,5 +95,5 @@ class Watchdog(threading.Thread):
             self.config.set_watchdog_eot()
             if self.set_completion_ev :
                 self.set_completion_ev.set()
-            ic(self._name, self.set_completion_ev.is_set())
+            #ic(self._name, self.set_completion_ev.is_set())
             os._exit(1)

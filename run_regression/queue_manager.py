@@ -148,7 +148,7 @@ class QManager(threading.Thread, SmartQUtils):
             #self.config.comp_adv_req_queue.put(task)
             #task1 = self.config.comp_adv_resp_queue.get()
             #if task1 is not None:
-            #    ic(task1)
+            #    #ic(task1)
             #self._wait_queue.print_queue('QM')
             #task['approved']= self.config.remove_list_entry_by_index(task['approved'],hit)
             #task['status'] = 'execute'
@@ -175,7 +175,7 @@ class QManager(threading.Thread, SmartQUtils):
     def process_advice(self, q_entry, q_entry_index):
         self.log('process_advice', q_entry, q_entry_index)
         advice = self.get_advice(q_entry)
-        ic("process_advice",advice)
+        #ic("process_advice",advice)
         self.log('process_advice', f"Advice: {advice}")
         match advice:
             case 'wait':
@@ -188,7 +188,7 @@ class QManager(threading.Thread, SmartQUtils):
             # case 'cancel':   TODO
             case _:
                 self.set_status(q_entry, 'wait')
-                ic("process_advice","case_", advice)
+                #ic("process_advice","case_", advice)
         self.log('process_advice', return_value=q_entry)
         return q_entry
 
@@ -197,13 +197,13 @@ class QManager(threading.Thread, SmartQUtils):
         result = False
         if not self.config.comp_adv_resp_queue.is_empty():
             resp = self.config.comp_adv_resp_queue.seek(q_entry)
-            ic()
-            ic("get_advice",resp)
+            #ic()
+            #ic("get_advice",resp)
             if resp != False:
                 result = self.config.comp_adv_resp_queue.get_adviser_resp(resp)
         self.log('get_advice', return_value=result)
-        ic("get_advice",result)
-        ic()
+        #ic("get_advice",result)
+        #ic()
         return result
 
     def process_runQ(self):

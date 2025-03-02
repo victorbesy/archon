@@ -109,7 +109,7 @@ class CompDoneQArbEx(threading.Thread, SmartQUtils):
                 "cpu_times": p.cpu_times(),
                 "cpu_num": p.cpu_num()
             }
-            ic("Debug process_info",pid,process_info,"\n")
+            ##ic("Debug process_info",pid,process_info,"\n")
             updated_info = {}
             previous_info = self.previous_process_info.get(pid, {})
 
@@ -125,7 +125,7 @@ class CompDoneQArbEx(threading.Thread, SmartQUtils):
 
             # Check if there's any difference between updated_info and previous_info
             if previous_info != updated_info:
-                ic("Debug updated_info",previous_info,updated_info,"\n")
+                #ic("Debug updated_info",previous_info,updated_info,"\n")
                 self.previous_process_info[pid] = updated_info
                 print("Process Information has changed:")
                 for key, value in updated_info.items():

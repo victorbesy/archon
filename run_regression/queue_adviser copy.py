@@ -50,7 +50,7 @@ class QAdviser(threading.Thread) :
     def process_inputQ(self):
         task = self._input_queue.get()
         #set output quueue TODO!!!
-        #ic(task)
-        #ic()
+        ##ic(task)
+        ##ic()
     
    
