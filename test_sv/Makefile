@@ -4,7 +4,8 @@ SIM_MAIN = sim_main.cpp
 TOP_MODULE = Vcs_common
 COMPILATION_LOG_FILE = verilator_comp.log
 TEST_LOG_FILE = verilator_test.log
-
+SRC_V  = $(shell shuf -n 1 -e top_sim.v top_sim_error.v)
+#SRC_V  = top_sim.v
 include ./Sim.mk
 
 ifeq (${VERILATOR},)
@@ -16,9 +17,10 @@ compile_verilator_sv: clean
 	echo "Sleeping for $$DELAY seconds..." | tee -a $(COMPILATION_LOG_FILE); \
     sleep $$DELAY
 	@echo "Compiling with Verilator..." | tee -a $(COMPILATION_LOG_FILE)
+	@echo "file: $(SRC_V)" | tee -a $(COMPILATION_LOG_FILE)
 	${VERILATOR} --version | tee -a $(COMPILATION_LOG_FILE)
-	echo "Command: ${VERILATOR} $(VERILATOR_FLAGS) cs_common.svh $(SHUNT_VERILATOR_FLAGS) top_sim.v --exe $(SIM_MAIN) --trace" | tee -a $(COMPILATION_LOG_FILE)
-	{ ${VERILATOR} $(VERILATOR_FLAGS) cs_common.svh $(SHUNT_VERILATOR_FLAGS) top_sim.v --exe $(SIM_MAIN) --trace 2>&1; echo "Verilator exit code: $$?" >&3; } 3>> $(COMPILATION_LOG_FILE) | tee -a $(COMPILATION_LOG_FILE); \
+	echo "Command: ${VERILATOR} $(VERILATOR_FLAGS) cs_common.svh $(SHUNT_VERILATOR_FLAGS) $(SRC_V) --exe $(SIM_MAIN) --trace" | tee -a $(COMPILATION_LOG_FILE)
+	{ ${VERILATOR} $(VERILATOR_FLAGS) cs_common.svh $(SHUNT_VERILATOR_FLAGS) $(SRC_V) --exe $(SIM_MAIN) --trace 2>&1; echo "Verilator exit code: $$?" >&3; } 3>> $(COMPILATION_LOG_FILE) | tee -a $(COMPILATION_LOG_FILE); \
 	EXIT_CODE=$$(tail -n 1 $(COMPILATION_LOG_FILE) | grep -o '[0-9]*$$'); \
 	if [ $$EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a $(COMPILATION_LOG_FILE); else echo "COMPILE FAILED" | tee -a $(COMPILATION_LOG_FILE); exit 1; fi
 	echo "Command: make -C obj_dir -j -f Vcs_common.mk Vcs_common" | tee -a $(COMPILATION_LOG_FILE)

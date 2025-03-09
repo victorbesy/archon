@@ -3,7 +3,9 @@ host = "localhost"
 port = 3306
 user = "username"
 password = "password"
-output_dir = ""
+output_dir = "/home/v/TEMP"
+db_name = "smartq.db"
+csv_name = "compile_done_queue.csv"
 
 [server]
 host = "localhost"
@@ -17,3 +19,9 @@ concurrent_run = 2
 licenses = { "VCS" = 10 }
 max_timeout_compile = 360
 max_timeout_test =  10
+
+[CompileLog]
+logfile_name = "verilator_comp.log"
+error_keywords = ["Error","%Error","ERROR"]
+error_line_depth = 3
+

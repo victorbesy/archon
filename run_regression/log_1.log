@@ -1,153 +1,83 @@
-make: Warning: File 'Sim.mk' has modification time 1.5 s in the future
-rm -rf obj_dir
-rm -f verilator_comp.log verilator_test.log
-Sleeping for 7 seconds...
-rm -rf obj_dir
-rm -f verilator_comp.log verilator_test.log
-Sleeping for 6 seconds...
-Compiling with Verilator...
-verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace  2>&1 | tee -a verilator_comp.log
-- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
-- Verilator: Built from 0.276 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
-- Verilator: Walltime 0.141 s (elab=0.001, cvt=0.046, bld=0.000); cpu 0.025 s on 1 threads; alloced 10.297 MB
-make -C obj_dir -j -f Vcs_common.mk Vcs_common
-make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group5/build/obj_dir'
-g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
-python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
-echo "" > Vcs_common__ALL.verilator_deplist.tmp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
-rm -rf obj_dir
-rm -f verilator_comp.log verilator_test.log
-Sleeping for 6 seconds...
-Compiling with Verilator...
-verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace  2>&1 | tee -a verilator_comp.log
-- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
-- Verilator: Built from 0.276 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
-- Verilator: Walltime 0.157 s (elab=0.001, cvt=0.047, bld=0.000); cpu 0.025 s on 1 threads; alloced 10.301 MB
-make -C obj_dir -j -f Vcs_common.mk Vcs_common
-make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group6/build/obj_dir'
-g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
-python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
-echo "" > Vcs_common__ALL.verilator_deplist.tmp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
-g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
-rm Vcs_common__ALL.verilator_deplist.tmp
-make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group5/build/obj_dir'
-Compilation complete. Compilation log file generated: verilator_comp.log
-make: warning:  Clock skew detected.  Your build may be incomplete.
-Compiling with Verilator...
-verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace  2>&1 | tee -a verilator_comp.log
-- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
-- Verilator: Built from 0.276 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
-- Verilator: Walltime 0.325 s (elab=0.001, cvt=0.079, bld=0.000); cpu 0.066 s on 1 threads; alloced 10.301 MB
-make -C obj_dir -j -f Vcs_common.mk Vcs_common
-make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group2/build/obj_dir'
-g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
-python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
-echo "" > Vcs_common__ALL.verilator_deplist.tmp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
-rm -rf obj_dir
-rm -f verilator_comp.log verilator_test.log
-Sleeping for 7 seconds...
-g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
-rm Vcs_common__ALL.verilator_deplist.tmp
-make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group6/build/obj_dir'
-Compilation complete. Compilation log file generated: verilator_comp.log
-rm -rf obj_dir
-rm -f verilator_comp.log verilator_test.log
-Sleeping for 6 seconds...
-Compiling with Verilator...
-verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace  2>&1 | tee -a verilator_comp.log
-- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
-- Verilator: Built from 0.276 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
-- Verilator: Walltime 0.237 s (elab=0.002, cvt=0.082, bld=0.000); cpu 0.050 s on 1 threads; alloced 10.297 MB
-make -C obj_dir -j -f Vcs_common.mk Vcs_common
-make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group10/build/obj_dir'
-g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
-python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
-echo "" > Vcs_common__ALL.verilator_deplist.tmp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
-g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
-rm Vcs_common__ALL.verilator_deplist.tmp
-make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group2/build/obj_dir'
-Compilation complete. Compilation log file generated: verilator_comp.log
-rm -rf obj_dir
-rm -f verilator_comp.log verilator_test.log
-Sleeping for 6 seconds...
-Compiling with Verilator...
-verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace  2>&1 | tee -a verilator_comp.log
-- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
-- Verilator: Built from 0.276 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
-- Verilator: Walltime 0.311 s (elab=0.004, cvt=0.103, bld=0.000); cpu 0.043 s on 1 threads; alloced 10.301 MB
-make -C obj_dir -j -f Vcs_common.mk Vcs_common
-make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group4/build/obj_dir'
-g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
-python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
-echo "" > Vcs_common__ALL.verilator_deplist.tmp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
-Compiling with Verilator...
-verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace  2>&1 | tee -a verilator_comp.log
-- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
-- Verilator: Built from 0.276 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
-- Verilator: Walltime 0.322 s (elab=0.004, cvt=0.102, bld=0.000); cpu 0.039 s on 1 threads; alloced 10.301 MB
-make -C obj_dir -j -f Vcs_common.mk Vcs_common
-make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group8/build/obj_dir'
-g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
-python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
-echo "" > Vcs_common__ALL.verilator_deplist.tmp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
-g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
-rm Vcs_common__ALL.verilator_deplist.tmp
-make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group10/build/obj_dir'
-Compilation complete. Compilation log file generated: verilator_comp.log
-rm -rf obj_dir
-rm -f verilator_comp.log verilator_test.log
-Sleeping for 7 seconds...
-g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
-rm Vcs_common__ALL.verilator_deplist.tmp
-make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group4/build/obj_dir'
-Compilation complete. Compilation log file generated: verilator_comp.log
-g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
-rm Vcs_common__ALL.verilator_deplist.tmp
-make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group8/build/obj_dir'
-Compilation complete. Compilation log file generated: verilator_comp.log
-rm -rf obj_dir
-rm -f verilator_comp.log verilator_test.log
-Sleeping for 5 seconds...
 rm -rf obj_dir
 rm -f verilator_comp.log verilator_test.log
 Sleeping for 5 seconds...
 Compiling with Verilator...
-verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace  2>&1 | tee -a verilator_comp.log
+file: top_sim_error.v
+verilator --version | tee -a verilator_comp.log
+Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+echo "Command: verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim_error.v --exe sim_main.cpp --trace" | tee -a verilator_comp.log
+Command: verilator -Wall --trace cs_common.svh -CFLAGS -I/home/v/workspace/Shunt/utils/dpi/include -CFLAGS -I/home/v/workspace/Shunt/utils/c/include -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS /home/v/workspace/Shunt/bin/libutils.so top_sim_error.v --exe sim_main.cpp --trace
+{ verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim_error.v --exe sim_main.cpp --trace 2>&1; echo "Verilator exit code: $?" >&3; } 3>> verilator_comp.log | tee -a verilator_comp.log; \
+EXIT_CODE=$(tail -n 1 verilator_comp.log | grep -o '[0-9]*$'); \
+if [ $EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a verilator_comp.log; else echo "COMPILE FAILED" | tee -a verilator_comp.log; exit 1; fi
+%Error: top_sim_error.v:24:9: syntax error, unexpected $finish
+   24 |         $finish; 
+      |         ^~~~~~~
+%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}
+   34 | $foo
+      | ^~~~
+%Error: Cannot continue
+COMPILE FAILED
+make: *** [Makefile:21: compile_verilator_sv] Error 1
+ic| error_text_current: ['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                         '24 |         $finish;',
+                         '|         ^~~~~~~']
+    hash_tag_current: '05a71c1e21eab1b6f222cabad2db1f67fa4c44066e587e585d92347514e1af9d'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: '05a71c1e21eab1b6f222cabad2db1f67fa4c44066e587e585d92347514e1af9d'
+ic| error_text_current: ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                         '34 | $foo',
+                         '| ^~~~']
+    hash_tag_current: '05a71c1e21eab1b6f222cabad2db1f67fa4c44066e587e585d92347514e1af9d'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: '05a71c1e21eab1b6f222cabad2db1f67fa4c44066e587e585d92347514e1af9d'
+ic| error_text_current: ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']
+    hash_tag_current: '05a71c1e21eab1b6f222cabad2db1f67fa4c44066e587e585d92347514e1af9d'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: '05a71c1e21eab1b6f222cabad2db1f67fa4c44066e587e585d92347514e1af9d'
+rm -rf obj_dir
+rm -f verilator_comp.log verilator_test.log
+Sleeping for 5 seconds...
+Compiling with Verilator...
+file: top_sim.v
+verilator --version | tee -a verilator_comp.log
+Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+echo "Command: verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim_error.v --exe sim_main.cpp --trace" | tee -a verilator_comp.log
+Command: verilator -Wall --trace cs_common.svh -CFLAGS -I/home/v/workspace/Shunt/utils/dpi/include -CFLAGS -I/home/v/workspace/Shunt/utils/c/include -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS /home/v/workspace/Shunt/bin/libutils.so top_sim_error.v --exe sim_main.cpp --trace
+{ verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace 2>&1; echo "Verilator exit code: $?" >&3; } 3>> verilator_comp.log | tee -a verilator_comp.log; \
+EXIT_CODE=$(tail -n 1 verilator_comp.log | grep -o '[0-9]*$'); \
+if [ $EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a verilator_comp.log; else echo "COMPILE FAILED" | tee -a verilator_comp.log; exit 1; fi
 - V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
 - Verilator: Built from 0.276 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
-- Verilator: Walltime 0.388 s (elab=0.002, cvt=0.105, bld=0.000); cpu 0.071 s on 1 threads; alloced 10.301 MB
-make -C obj_dir -j -f Vcs_common.mk Vcs_common
-make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group7/build/obj_dir'
+- Verilator: Walltime 0.282 s (elab=0.002, cvt=0.114, bld=0.000); cpu 0.039 s on 1 threads; alloced 10.301 MB
+rm -rf obj_dir
+rm -f verilator_comp.log verilator_test.log
+COMPILE PASS
+echo "Command: make -C obj_dir -j -f Vcs_common.mk Vcs_common" | tee -a verilator_comp.log
+Sleeping for 6 seconds...
+Command: make -C obj_dir -j -f Vcs_common.mk Vcs_common
+{ make -C obj_dir -j -f Vcs_common.mk Vcs_common 2>&1; MAKE_EXIT_CODE=$?; echo "Make command exit code: $MAKE_EXIT_CODE" >&3; if [ $MAKE_EXIT_CODE -ne 0 ]; then echo "Make command failed with exit code: $MAKE_EXIT_CODE" >&3; fi } 3>> verilator_comp.log | tee -a verilator_comp.log; \
+EXIT_CODE=$(tail -n 1 verilator_comp.log | grep -o '[0-9]*$'); \
+if [ $EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a verilator_comp.log; else echo "COMPILE FAILED" | tee -a verilator_comp.log; exit 1; fi
+make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group10/build/obj_dir'
 g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
@@ -156,28 +86,46 @@ g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/veril
 python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
 echo "" > Vcs_common__ALL.verilator_deplist.tmp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
+rm -rf obj_dir
+rm -f verilator_comp.log verilator_test.log
+Sleeping for 5 seconds...
 Compiling with Verilator...
-verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace  2>&1 | tee -a verilator_comp.log
+file: top_sim_error.v
+verilator --version | tee -a verilator_comp.log
+Compiling with Verilator...
+file: top_sim_error.v
+verilator --version | tee -a verilator_comp.log
+Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+echo "Command: verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace" | tee -a verilator_comp.log
+Command: verilator -Wall --trace cs_common.svh -CFLAGS -I/home/v/workspace/Shunt/utils/dpi/include -CFLAGS -I/home/v/workspace/Shunt/utils/c/include -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS /home/v/workspace/Shunt/bin/libutils.so top_sim.v --exe sim_main.cpp --trace
+{ verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace 2>&1; echo "Verilator exit code: $?" >&3; } 3>> verilator_comp.log | tee -a verilator_comp.log; \
+EXIT_CODE=$(tail -n 1 verilator_comp.log | grep -o '[0-9]*$'); \
+if [ $EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a verilator_comp.log; else echo "COMPILE FAILED" | tee -a verilator_comp.log; exit 1; fi
+Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+echo "Command: verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim_error.v --exe sim_main.cpp --trace" | tee -a verilator_comp.log
+Command: verilator -Wall --trace cs_common.svh -CFLAGS -I/home/v/workspace/Shunt/utils/dpi/include -CFLAGS -I/home/v/workspace/Shunt/utils/c/include -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS /home/v/workspace/Shunt/bin/libutils.so top_sim_error.v --exe sim_main.cpp --trace
+{ verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim_error.v --exe sim_main.cpp --trace 2>&1; echo "Verilator exit code: $?" >&3; } 3>> verilator_comp.log | tee -a verilator_comp.log; \
+EXIT_CODE=$(tail -n 1 verilator_comp.log | grep -o '[0-9]*$'); \
+if [ $EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a verilator_comp.log; else echo "COMPILE FAILED" | tee -a verilator_comp.log; exit 1; fi
+%Error: top_sim_error.v:24:9: syntax error, unexpected $finish
+   24 |         $finish; 
+      |         ^~~~~~~
+%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}
+   34 | $foo
+      | ^~~~
+%Error: Cannot continue
+COMPILE FAILED
+make: *** [Makefile:21: compile_verilator_sv] Error 1
 - V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
 - Verilator: Built from 0.276 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
-- Verilator: Walltime 0.293 s (elab=0.002, cvt=0.093, bld=0.000); cpu 0.037 s on 1 threads; alloced 10.301 MB
-make -C obj_dir -j -f Vcs_common.mk Vcs_common
-make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group9/build/obj_dir'
-g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
-python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
-echo "" > Vcs_common__ALL.verilator_deplist.tmp
-g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
-Compiling with Verilator...
-verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace  2>&1 | tee -a verilator_comp.log
-- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
-- Verilator: Built from 0.276 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
-- Verilator: Walltime 0.416 s (elab=0.006, cvt=0.143, bld=0.000); cpu 0.050 s on 1 threads; alloced 10.301 MB
-make -C obj_dir -j -f Vcs_common.mk Vcs_common
-make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group3/build/obj_dir'
+- Verilator: Walltime 0.394 s (elab=0.002, cvt=0.106, bld=0.000); cpu 0.046 s on 1 threads; alloced 10.301 MB
+COMPILE PASS
+echo "Command: make -C obj_dir -j -f Vcs_common.mk Vcs_common" | tee -a verilator_comp.log
+Command: make -C obj_dir -j -f Vcs_common.mk Vcs_common
+{ make -C obj_dir -j -f Vcs_common.mk Vcs_common 2>&1; MAKE_EXIT_CODE=$?; echo "Make command exit code: $MAKE_EXIT_CODE" >&3; if [ $MAKE_EXIT_CODE -ne 0 ]; then echo "Make command failed with exit code: $MAKE_EXIT_CODE" >&3; fi } 3>> verilator_comp.log | tee -a verilator_comp.log; \
+EXIT_CODE=$(tail -n 1 verilator_comp.log | grep -o '[0-9]*$'); \
+if [ $EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a verilator_comp.log; else echo "COMPILE FAILED" | tee -a verilator_comp.log; exit 1; fi
+make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group8/build/obj_dir'
 g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
@@ -188,26 +136,274 @@ echo "" > Vcs_common__ALL.verilator_deplist.tmp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
 g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
 rm Vcs_common__ALL.verilator_deplist.tmp
-make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group7/build/obj_dir'
+make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group10/build/obj_dir'
+/bin/sh: 3: [: -eq: unexpected operator
+COMPILE FAILED
+make: *** [Makefile:23: compile_verilator_sv] Error 1
+rm -rf obj_dir
+rm -f verilator_comp.log verilator_test.log
+Sleeping for 6 seconds...
+ic| error_text_current: ['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                         '24 |         $finish;',
+                         '|         ^~~~~~~']
+    hash_tag_current: '5d4bc414d8cc35977a25debcc07fd39c6de0fc9eb2d79066d9f5ebfefe0e0687'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: '5d4bc414d8cc35977a25debcc07fd39c6de0fc9eb2d79066d9f5ebfefe0e0687'
+ic| error_text_current: ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                         '34 | $foo',
+                         '| ^~~~']
+    hash_tag_current: '5d4bc414d8cc35977a25debcc07fd39c6de0fc9eb2d79066d9f5ebfefe0e0687'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: '5d4bc414d8cc35977a25debcc07fd39c6de0fc9eb2d79066d9f5ebfefe0e0687'
+ic| error_text_current: ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']
+    hash_tag_current: '5d4bc414d8cc35977a25debcc07fd39c6de0fc9eb2d79066d9f5ebfefe0e0687'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: '5d4bc414d8cc35977a25debcc07fd39c6de0fc9eb2d79066d9f5ebfefe0e0687'
+rm -rf obj_dir
+rm -f verilator_comp.log verilator_test.log
+Sleeping for 6 seconds...
+g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
+rm Vcs_common__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group8/build/obj_dir'
+COMPILE PASS
 Compilation complete. Compilation log file generated: verilator_comp.log
 rm -rf obj_dir
 rm -f verilator_comp.log verilator_test.log
-Sleeping for 7 seconds...
-g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
-g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
-rm Vcs_common__ALL.verilator_deplist.tmp
-make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group9/build/obj_dir'
-Compilation complete. Compilation log file generated: verilator_comp.log
-rm Vcs_common__ALL.verilator_deplist.tmp
-make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group3/build/obj_dir'
-Compilation complete. Compilation log file generated: verilator_comp.log
+Sleeping for 5 seconds...
 Compiling with Verilator...
-verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace  2>&1 | tee -a verilator_comp.log
+file: top_sim.v
+verilator --version | tee -a verilator_comp.log
+Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+echo "Command: verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim_error.v --exe sim_main.cpp --trace" | tee -a verilator_comp.log
+Command: verilator -Wall --trace cs_common.svh -CFLAGS -I/home/v/workspace/Shunt/utils/dpi/include -CFLAGS -I/home/v/workspace/Shunt/utils/c/include -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS /home/v/workspace/Shunt/bin/libutils.so top_sim_error.v --exe sim_main.cpp --trace
+{ verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim_error.v --exe sim_main.cpp --trace 2>&1; echo "Verilator exit code: $?" >&3; } 3>> verilator_comp.log | tee -a verilator_comp.log; \
+EXIT_CODE=$(tail -n 1 verilator_comp.log | grep -o '[0-9]*$'); \
+if [ $EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a verilator_comp.log; else echo "COMPILE FAILED" | tee -a verilator_comp.log; exit 1; fi
+%Error: top_sim_error.v:24:9: syntax error, unexpected $finish
+   24 |         $finish; 
+      |         ^~~~~~~
+%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}
+   34 | $foo
+      | ^~~~
+%Error: Cannot continue
+COMPILE FAILED
+make: *** [Makefile:21: compile_verilator_sv] Error 1
+ic| error_text_current: ['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                         '24 |         $finish;',
+                         '|         ^~~~~~~']
+    hash_tag_current: 'd0222642329665e7194b345f893eb1c804b4b81a0bb12742d8703f076844492f'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: 'd0222642329665e7194b345f893eb1c804b4b81a0bb12742d8703f076844492f'
+Compiling with Verilator...
+file: top_sim.v
+icverilator --version | tee -a verilator_comp.log
+| error_text_current: ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                         '34 | $foo',
+                         '| ^~~~']
+    hash_tag_current: 'd0222642329665e7194b345f893eb1c804b4b81a0bb12742d8703f076844492f'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+                     'echo "Command: verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim_error.v --exe sim_main.cpp --trace" | tee -a verilator_comp.log
+Command: verilator -Wall --trace cs_common.svh -CFLAGS -I/home/v/workspace/Shunt/utils/dpi/include -CFLAGS -I/home/v/workspace/Shunt/utils/c/include -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS /home/v/workspace/Shunt/bin/libutils.so top_sim_error.v --exe sim_main.cpp --trace
+24 |         $finish;',
+                     '{ verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace 2>&1; echo "Verilator exit code: $?" >&3; } 3>> verilator_comp.log | tee -a verilator_comp.log; \
+EXIT_CODE=$(tail -n 1 verilator_comp.log | grep -o '[0-9]*$'); \
+if [ $EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a verilator_comp.log; else echo "COMPILE FAILED" | tee -a verilator_comp.log; exit 1; fi
+|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: 'd0222642329665e7194b345f893eb1c804b4b81a0bb12742d8703f076844492f'
+ic| error_text_current: ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']
+    hash_tag_current: 'd0222642329665e7194b345f893eb1c804b4b81a0bb12742d8703f076844492f'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: 'd0222642329665e7194b345f893eb1c804b4b81a0bb12742d8703f076844492f'
 - V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
 - Verilator: Built from 0.276 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
-- Verilator: Walltime 0.179 s (elab=0.001, cvt=0.057, bld=0.000); cpu 0.032 s on 1 threads; alloced 10.301 MB
-make -C obj_dir -j -f Vcs_common.mk Vcs_common
-make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group1/build/obj_dir'
+- Verilator: Walltime 0.220 s (elab=0.002, cvt=0.059, bld=0.000); cpu 0.038 s on 1 threads; alloced 10.301 MB
+COMPILE PASS
+echo "Command: make -C obj_dir -j -f Vcs_common.mk Vcs_common" | tee -a verilator_comp.log
+Command: make -C obj_dir -j -f Vcs_common.mk Vcs_common
+{ make -C obj_dir -j -f Vcs_common.mk Vcs_common 2>&1; MAKE_EXIT_CODE=$?; echo "Make command exit code: $MAKE_EXIT_CODE" >&3; if [ $MAKE_EXIT_CODE -ne 0 ]; then echo "Make command failed with exit code: $MAKE_EXIT_CODE" >&3; fi } 3>> verilator_comp.log | tee -a verilator_comp.log; \
+EXIT_CODE=$(tail -n 1 verilator_comp.log | grep -o '[0-9]*$'); \
+if [ $EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a verilator_comp.log; else echo "COMPILE FAILED" | tee -a verilator_comp.log; exit 1; fi
+rm -rf obj_dir
+make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group7/build/obj_dir'
+rm -f verilator_comp.log verilator_test.log
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
+echo "" > Vcs_common__ALL.verilator_deplist.tmp
+Sleeping for 5 seconds...
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
+Compiling with Verilator...
+file: top_sim.v
+verilator --version | tee -a verilator_comp.log
+Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+echo "Command: verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim_error.v --exe sim_main.cpp --trace" | tee -a verilator_comp.log
+Command: verilator -Wall --trace cs_common.svh -CFLAGS -I/home/v/workspace/Shunt/utils/dpi/include -CFLAGS -I/home/v/workspace/Shunt/utils/c/include -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS /home/v/workspace/Shunt/bin/libutils.so top_sim_error.v --exe sim_main.cpp --trace
+{ verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim_error.v --exe sim_main.cpp --trace 2>&1; echo "Verilator exit code: $?" >&3; } 3>> verilator_comp.log | tee -a verilator_comp.log; \
+EXIT_CODE=$(tail -n 1 verilator_comp.log | grep -o '[0-9]*$'); \
+if [ $EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a verilator_comp.log; else echo "COMPILE FAILED" | tee -a verilator_comp.log; exit 1; fi
+%Error: top_sim_error.v:24:9: syntax error, unexpected $finish
+   24 |         $finish; 
+      |         ^~~~~~~
+%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}
+   34 | $foo
+      | ^~~~
+%Error: Cannot continue
+COMPILE FAILED
+make: *** [Makefile:21: compile_verilator_sv] Error 1
+Compiling with Verilator...
+file: top_sim.v
+verilator --version | tee -a verilator_comp.log
+Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+echo "Command: verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim_error.v --exe sim_main.cpp --trace" | tee -a verilator_comp.log
+Command: verilator -Wall --trace cs_common.svh -CFLAGS -I/home/v/workspace/Shunt/utils/dpi/include -CFLAGS -I/home/v/workspace/Shunt/utils/c/include -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS /home/v/workspace/Shunt/bin/libutils.so top_sim_error.v --exe sim_main.cpp --trace
+{ verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim_error.v --exe sim_main.cpp --trace 2>&1; echo "Verilator exit code: $?" >&3; } 3>> verilator_comp.log | tee -a verilator_comp.log; \
+EXIT_CODE=$(tail -n 1 verilator_comp.log | grep -o '[0-9]*$'); \
+if [ $EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a verilator_comp.log; else echo "COMPILE FAILED" | tee -a verilator_comp.log; exit 1; fi
+%Error: top_sim_error.v:24:9: syntax error, unexpected $finish
+   24 |         $finish; 
+      |         ^~~~~~~
+%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}
+   34 | $foo
+      | ^~~~
+%Error: Cannot continue
+COMPILE FAILED
+make: *** [Makefile:21: compile_verilator_sv] Error 1
+g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
+rm Vcs_common__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group7/build/obj_dir'
+COMPILE PASS
+Compilation complete. Compilation log file generated: verilator_comp.log
+rm -rf obj_dir
+rm -f verilator_comp.log verilator_test.log
+Sleeping for 5 seconds...
+ic| error_text_current: ['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                         '24 |         $finish;',
+                         '|         ^~~~~~~']
+    hash_tag_current: 'dfedee6d9750406062b43008ebd8cbe8ebf65d5c8d05d8a91bdf13f86b53252b'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: 'dfedee6d9750406062b43008ebd8cbe8ebf65d5c8d05d8a91bdf13f86b53252b'
+ic| error_text_current: ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                         '34 | $foo',
+                         '| ^~~~']
+    hash_tag_current: 'dfedee6d9750406062b43008ebd8cbe8ebf65d5c8d05d8a91bdf13f86b53252b'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: 'dfedee6d9750406062b43008ebd8cbe8ebf65d5c8d05d8a91bdf13f86b53252b'
+ic| error_text_current: ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']
+    hash_tag_current: 'dfedee6d9750406062b43008ebd8cbe8ebf65d5c8d05d8a91bdf13f86b53252b'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: 'dfedee6d9750406062b43008ebd8cbe8ebf65d5c8d05d8a91bdf13f86b53252b'
+rm -rf obj_dir
+rm -f verilator_comp.log verilator_test.log
+Sleeping for 5 seconds...
+ic| error_text_current: ['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                         '24 |         $finish;',
+                         '|         ^~~~~~~']
+    hash_tag_current: 'ade57e26a6b66b7754a3ba4243b765d6a914befe4fc999b1040ca75fac81217d'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: 'ade57e26a6b66b7754a3ba4243b765d6a914befe4fc999b1040ca75fac81217d'
+ic| error_text_current: ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                         '34 | $foo',
+                         '| ^~~~']
+    hash_tag_current: 'ade57e26a6b66b7754a3ba4243b765d6a914befe4fc999b1040ca75fac81217d'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: 'ade57e26a6b66b7754a3ba4243b765d6a914befe4fc999b1040ca75fac81217d'
+ic| error_text_current: ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']
+    hash_tag_current: 'ade57e26a6b66b7754a3ba4243b765d6a914befe4fc999b1040ca75fac81217d'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: 'ade57e26a6b66b7754a3ba4243b765d6a914befe4fc999b1040ca75fac81217d'
+Compiling with Verilator...
+file: top_sim_error.v
+verilator --version | tee -a verilator_comp.log
+Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+echo "Command: verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace" | tee -a verilator_comp.log
+Command: verilator -Wall --trace cs_common.svh -CFLAGS -I/home/v/workspace/Shunt/utils/dpi/include -CFLAGS -I/home/v/workspace/Shunt/utils/c/include -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS /home/v/workspace/Shunt/bin/libutils.so top_sim.v --exe sim_main.cpp --trace
+{ verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim.v --exe sim_main.cpp --trace 2>&1; echo "Verilator exit code: $?" >&3; } 3>> verilator_comp.log | tee -a verilator_comp.log; \
+EXIT_CODE=$(tail -n 1 verilator_comp.log | grep -o '[0-9]*$'); \
+if [ $EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a verilator_comp.log; else echo "COMPILE FAILED" | tee -a verilator_comp.log; exit 1; fi
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+- Verilator: Built from 0.276 MB sources in 3 modules, into 0.082 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.165 s (elab=0.001, cvt=0.055, bld=0.000); cpu 0.029 s on 1 threads; alloced 10.301 MB
+COMPILE PASS
+echo "Command: make -C obj_dir -j -f Vcs_common.mk Vcs_common" | tee -a verilator_comp.log
+Command: make -C obj_dir -j -f Vcs_common.mk Vcs_common
+{ make -C obj_dir -j -f Vcs_common.mk Vcs_common 2>&1; MAKE_EXIT_CODE=$?; echo "Make command exit code: $MAKE_EXIT_CODE" >&3; if [ $MAKE_EXIT_CODE -ne 0 ]; then echo "Make command failed with exit code: $MAKE_EXIT_CODE" >&3; fi } 3>> verilator_comp.log | tee -a verilator_comp.log; \
+EXIT_CODE=$(tail -n 1 verilator_comp.log | grep -o '[0-9]*$'); \
+if [ $EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a verilator_comp.log; else echo "COMPILE FAILED" | tee -a verilator_comp.log; exit 1; fi
+make[1]: Entering directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group1/build/obj_dir'
 g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -Os  -c -o sim_main.o ../sim_main.cpp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
@@ -216,24 +412,84 @@ g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/veril
 python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcs_common.cpp Vcs_common___024root__DepSet_h532b677c__0.cpp Vcs_common___024root__DepSet_h5619adff__0.cpp Vcs_common_shunt_dpi_pkg__DepSet_ha2957969__0.cpp Vcs_common__Dpi.cpp Vcs_common__Trace__0.cpp Vcs_common___024root__Slow.cpp Vcs_common___024root__DepSet_h532b677c__0__Slow.cpp Vcs_common___024root__DepSet_h5619adff__0__Slow.cpp Vcs_common_shunt_dpi_pkg__Slow.cpp Vcs_common_shunt_dpi_pkg__DepSet_hc65f8ff4__0__Slow.cpp Vcs_common___024unit__Slow.cpp Vcs_common___024unit__DepSet_he9d3e119__0__Slow.cpp Vcs_common__Syms.cpp Vcs_common__Trace__0__Slow.cpp Vcs_common__TraceDecls__0__Slow.cpp > Vcs_common__ALL.cpp
 echo "" > Vcs_common__ALL.verilator_deplist.tmp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/home/v/workspace/Shunt/utils/dpi/include -I/home/v/workspace/Shunt/utils/c/include   -c -o Vcs_common__ALL.o Vcs_common__ALL.cpp
+Compiling with Verilator...
+file: top_sim_error.v
+verilator --version | tee -a verilator_comp.log
+Verilator 5.032 2025-01-01 rev v5.032-46-g447ab12ce
+echo "Command: verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim_error.v --exe sim_main.cpp --trace" | tee -a verilator_comp.log
+Command: verilator -Wall --trace cs_common.svh -CFLAGS -I/home/v/workspace/Shunt/utils/dpi/include -CFLAGS -I/home/v/workspace/Shunt/utils/c/include -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS /home/v/workspace/Shunt/bin/libutils.so top_sim_error.v --exe sim_main.cpp --trace
+{ verilator -Wall --trace cs_common.svh -CFLAGS "-I/home/v/workspace/Shunt/utils/dpi/include" -CFLAGS "-I/home/v/workspace/Shunt/utils/c/include" -cc /home/v/workspace/Shunt/utils/dpi/include/shunt_verilator_dpi.svh /home/v/workspace/Shunt/utils/dpi/src/shunt_dpi_pkg.sv  -LDFLAGS "/home/v/workspace/Shunt/bin/libutils.so" top_sim_error.v --exe sim_main.cpp --trace 2>&1; echo "Verilator exit code: $?" >&3; } 3>> verilator_comp.log | tee -a verilator_comp.log; \
+EXIT_CODE=$(tail -n 1 verilator_comp.log | grep -o '[0-9]*$'); \
+if [ $EXIT_CODE -eq 0 ]; then echo "COMPILE PASS" | tee -a verilator_comp.log; else echo "COMPILE FAILED" | tee -a verilator_comp.log; exit 1; fi
+%Error: top_sim_error.v:24:9: syntax error, unexpected $finish
+   24 |         $finish; 
+      |         ^~~~~~~
+%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}
+   34 | $foo
+      | ^~~~
+%Error: Cannot continue
+COMPILE FAILED
+make: *** [Makefile:21: compile_verilator_sv] Error 1
 g++    sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vcs_common__ALL.a   /home/v/workspace/Shunt/bin/libutils.so  -pthread -lpthread -latomic   -o Vcs_common
 rm Vcs_common__ALL.verilator_deplist.tmp
-make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250302_101421/module1/Group1/build/obj_dir'
+make[1]: Leaving directory '/media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group1/build/obj_dir'
+COMPILE PASS
 Compilation complete. Compilation log file generated: verilator_comp.log
+ic| error_text_current: ['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                         '24 |         $finish;',
+                         '|         ^~~~~~~']
+    hash_tag_current: '0186374642b4ac598d91a98fb6f2f72df1cc2eb06858353071b6d2a3bfa7f587'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: '0186374642b4ac598d91a98fb6f2f72df1cc2eb06858353071b6d2a3bfa7f587'
+ic| error_text_current: ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                         '34 | $foo',
+                         '| ^~~~']
+    hash_tag_current: '0186374642b4ac598d91a98fb6f2f72df1cc2eb06858353071b6d2a3bfa7f587'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: '0186374642b4ac598d91a98fb6f2f72df1cc2eb06858353071b6d2a3bfa7f587'
+ic| error_text_current: ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']
+    hash_tag_current: '0186374642b4ac598d91a98fb6f2f72df1cc2eb06858353071b6d2a3bfa7f587'
+    error_entries: [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish',
+                     '24 |         $finish;',
+                     '|         ^~~~~~~'],
+                    ['%Error: top_sim_error.v:34:1: syntax error, unexpected ${pli-system}',
+                     '34 | $foo',
+                     '| ^~~~'],
+                    ['%Error: Cannot continue', 'Verilator exit code: 1', 'COMPILE FAILED']]
+    hash_tag_current: '0186374642b4ac598d91a98fb6f2f72df1cc2eb06858353071b6d2a3bfa7f587'
+Full path to process directory: /media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group3/build
+Full path to process directory: /media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group10/build
+Full path to process directory: /media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group4/build
+Full path to process directory: /media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group9/build
+Full path to process directory: /media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group5/build
+Full path to process directory: /media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group2/build
+Full path to process directory: /media/sf_workspace/archon/run_regression/sanity_regression_20250309_092534/module1/Group6/build
 Graceful Shutdown:
 compile_wait_queue queue: Empty
 compile_run_queue queue: Empty
 Compile Done: compile_done_queue queue:
-{'command': 'make COMP_MAKEARGS=GROUP5', 'subdir': 'module1/Group5/build', 'status': 'ok', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP5']>, 'process_info': {'pid': 36741, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.026751760870730477, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=11.29, children_system=0.65, iowait=0.0), 'cpu_num': 3, 'waitq_start_time': 1740928461.5326478, 'runq_start_time': 1740928470.9188852, 'doneq_start_time': 1740928487.5319004}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 36741}
-{'command': 'make COMP_MAKEARGS=GROUP6', 'subdir': 'module1/Group6/build', 'status': 'ok', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP6']>, 'process_info': {'pid': 36747, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.026751760870730477, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=14.17, children_system=0.86, iowait=0.0), 'cpu_num': 3, 'waitq_start_time': 1740928461.5326507, 'runq_start_time': 1740928477.9194086, 'doneq_start_time': 1740928494.6783493}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 36747}
-{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'ok', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP2']>, 'process_info': {'pid': 36776, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.026751760870730477, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=16.4, children_system=0.96, iowait=0.0), 'cpu_num': 0, 'waitq_start_time': 1740928461.5326385, 'runq_start_time': 1740928480.4848151, 'doneq_start_time': 1740928497.4344313}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 36776}
-{'command': 'make COMP_MAKEARGS=GROUP10', 'subdir': 'module1/Group10/build', 'status': 'ok', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP10']>, 'process_info': {'pid': 36858, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.026751760870730477, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=17.01, children_system=1.18, iowait=0.0), 'cpu_num': 1, 'waitq_start_time': 1740928461.5326645, 'runq_start_time': 1740928488.7705297, 'doneq_start_time': 1740928512.3283436}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 36858}
-{'command': 'make COMP_MAKEARGS=GROUP4', 'subdir': 'module1/Group4/build', 'status': 'ok', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP4']>, 'process_info': {'pid': 36886, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.026751760870730477, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=17.28, children_system=1.15, iowait=0.0), 'cpu_num': 1, 'waitq_start_time': 1740928461.5326452, 'runq_start_time': 1740928494.7809615, 'doneq_start_time': 1740928515.965935}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 36886}
-{'command': 'make COMP_MAKEARGS=GROUP8', 'subdir': 'module1/Group8/build', 'status': 'ok', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP8']>, 'process_info': {'pid': 36921, 'memory_rss': 0, 'memory_vms': 0, 'memory_percent': 0.0, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=16.39, children_system=1.07, iowait=0.0), 'cpu_num': 3, 'waitq_start_time': 1740928461.5326593, 'runq_start_time': 1740928498.2797146, 'doneq_start_time': 1740928517.0078304}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 36921}
-{'command': 'make COMP_MAKEARGS=GROUP7', 'subdir': 'module1/Group7/build', 'status': 'ok', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP7']>, 'process_info': {'pid': 37040, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.026751760870730477, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=17.79, children_system=1.34, iowait=0.0), 'cpu_num': 2, 'waitq_start_time': 1740928461.5326567, 'runq_start_time': 1740928512.4249108, 'doneq_start_time': 1740928537.5708308}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 37040}
-{'command': 'make COMP_MAKEARGS=GROUP9', 'subdir': 'module1/Group9/build', 'status': 'ok', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP9']>, 'process_info': {'pid': 37061, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.026751760870730477, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=16.45, children_system=1.12, iowait=0.0), 'cpu_num': 0, 'waitq_start_time': 1740928461.5326622, 'runq_start_time': 1740928516.0222037, 'doneq_start_time': 1740928538.6071131}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 37061}
-{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'ok', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP3']>, 'process_info': {'pid': 37068, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.026751760870730477, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=16.08, children_system=1.08, iowait=0.0), 'cpu_num': 0, 'waitq_start_time': 1740928461.532642, 'runq_start_time': 1740928517.0965984, 'doneq_start_time': 1740928539.6149678}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 37068}
-{'command': 'make COMP_MAKEARGS=GROUP1', 'subdir': 'module1/Group1/build', 'status': 'ok', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP1']>, 'process_info': {'pid': 37202, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.026751760870730477, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=15.53, children_system=0.9, iowait=0.0), 'cpu_num': 3, 'waitq_start_time': 1740928461.5326335, 'runq_start_time': 1740928537.6998143, 'doneq_start_time': 1740928552.9431252}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 37202}
+{'command': 'make COMP_MAKEARGS=GROUP3', 'subdir': 'module1/Group3/build', 'status': 'error', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 2 args: ['make', 'COMP_MAKEARGS=GROUP3']>, 'process_info': {'pid': 73112, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.02675174771528272, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=0.13, children_system=0.03, iowait=0.0), 'cpu_num': 2, 'waitq_start_time': 1741526734.7115872, 'runq_start_time': 1741526743.839902, 'doneq_start_time': 1741526752.4998634}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 73112}
+{'command': 'make COMP_MAKEARGS=GROUP10', 'subdir': 'module1/Group10/build', 'status': 'error', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 2 args: ['make', 'COMP_MAKEARGS=GROUP10']>, 'process_info': {'pid': 73148, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.02675174771528272, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=20.2, children_system=1.38, iowait=0.0), 'cpu_num': 2, 'waitq_start_time': 1741526734.7116022, 'runq_start_time': 1741526757.1066296, 'doneq_start_time': 1741526775.4993782}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 73148}
+{'command': 'make COMP_MAKEARGS=GROUP4', 'subdir': 'module1/Group4/build', 'status': 'error', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 2 args: ['make', 'COMP_MAKEARGS=GROUP4']>, 'process_info': {'pid': 73179, 'memory_rss': 0, 'memory_vms': 0, 'memory_percent': 0.0, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=0.23, children_system=0.04, iowait=0.0), 'cpu_num': 2, 'waitq_start_time': 1741526734.7115886, 'runq_start_time': 1741526762.57975, 'doneq_start_time': 1741526776.9303484}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 73179}
+{'command': 'make COMP_MAKEARGS=GROUP8', 'subdir': 'module1/Group8/build', 'status': 'ok', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP8']>, 'process_info': {'pid': 73218, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.02675174771528272, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=18.05, children_system=1.14, iowait=0.0), 'cpu_num': 1, 'waitq_start_time': 1741526734.711597, 'runq_start_time': 1741526763.5030713, 'doneq_start_time': 1741526779.1839833}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 73218}
+{'command': 'make COMP_MAKEARGS=GROUP9', 'subdir': 'module1/Group9/build', 'status': 'error', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 2 args: ['make', 'COMP_MAKEARGS=GROUP9']>, 'process_info': {'pid': 73336, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.02675174771528272, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=0.14, children_system=0.02, iowait=0.0), 'cpu_num': 3, 'waitq_start_time': 1741526734.7116008, 'runq_start_time': 1741526775.6134732, 'doneq_start_time': 1741526783.7238474}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 73336}
+{'command': 'make COMP_MAKEARGS=GROUP7', 'subdir': 'module1/Group7/build', 'status': 'ok', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP7']>, 'process_info': {'pid': 73348, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.02675174771528272, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=17.61, children_system=1.16, iowait=0.0), 'cpu_num': 2, 'waitq_start_time': 1741526734.7115955, 'runq_start_time': 1741526777.4518504, 'doneq_start_time': 1741526793.3368034}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 73348}
+{'command': 'make COMP_MAKEARGS=GROUP5', 'subdir': 'module1/Group5/build', 'status': 'error', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 2 args: ['make', 'COMP_MAKEARGS=GROUP5']>, 'process_info': {'pid': 73371, 'memory_rss': 0, 'memory_vms': 0, 'memory_percent': 0.0, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=0.27, children_system=0.07, iowait=0.0), 'cpu_num': 0, 'waitq_start_time': 1741526734.71159, 'runq_start_time': 1741526779.255167, 'doneq_start_time': 1741526794.53926}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 73371}
+{'command': 'make COMP_MAKEARGS=GROUP2', 'subdir': 'module1/Group2/build', 'status': 'error', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 2 args: ['make', 'COMP_MAKEARGS=GROUP2']>, 'process_info': {'pid': 73433, 'memory_rss': 0, 'memory_vms': 0, 'memory_percent': 0.0, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=0.22, children_system=0.05, iowait=0.0), 'cpu_num': 3, 'waitq_start_time': 1741526734.7115848, 'runq_start_time': 1741526783.9114757, 'doneq_start_time': 1741526795.8468575}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 73433}
+{'command': 'make COMP_MAKEARGS=GROUP1', 'subdir': 'module1/Group1/build', 'status': 'ok', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 0 args: ['make', 'COMP_MAKEARGS=GROUP1']>, 'process_info': {'pid': 73541, 'memory_rss': 2228224, 'memory_vms': 3141632, 'memory_percent': 0.02675174771528272, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=17.82, children_system=1.17, iowait=0.0), 'cpu_num': 1, 'waitq_start_time': 1741526734.7115817, 'runq_start_time': 1741526793.401479, 'doneq_start_time': 1741526806.3334055}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 73541}
+{'command': 'make COMP_MAKEARGS=GROUP6', 'subdir': 'module1/Group6/build', 'status': 'error', 'approved': [], 'adviser': '', 'process': <Popen: returncode: 2 args: ['make', 'COMP_MAKEARGS=GROUP6']>, 'process_info': {'pid': 73552, 'memory_rss': 0, 'memory_vms': 0, 'memory_percent': 0.0, 'cpu_percent': 0.0, 'cpu_times': pcputimes(user=0.0, system=0.0, children_user=0.39, children_system=0.04, iowait=0.0), 'cpu_num': 3, 'waitq_start_time': 1741526734.7115917, 'runq_start_time': 1741526794.6043575, 'doneq_start_time': 1741526807.6085649}, 'adviser_response': {'worker_execution': 'start', 'get_worker_info': 'NA', 'worker_resource_config': 'NA', 'change_worker': 'NA'}, 'pid': 73552}
 PASS:  config.compile_run_queue is empty
 PASS:  config.compile_wait_queue is empty
 End of Regression

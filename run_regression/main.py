@@ -24,7 +24,17 @@ def main(regression_config_file, system_config_file, compile_commands_file, run_
         
         config.set_number_of_compile_workers(config.compile_wait_queue.get_size())
         config.set_number_of_test_workers(config.test_wait_queue.get_size())
+        
+        output_dir = system_config['database']['output_dir']
+        
+        db_name = system_config['database']['db_name']
+        db_path = f"{output_dir}/{db_name}"
+        config.set_sql_db_name(db_path)
+        config.initialize_db(db_path)
 
+        csv_name = system_config['database']['csv_name']
+        csv_path = f"{output_dir}/{csv_name}"
+        config.set_csv_name(csv_path)
 
 #############################
         comp_run_eot_event = threading.Event()
@@ -111,8 +121,10 @@ def main(regression_config_file, system_config_file, compile_commands_file, run_
             else:
                 print("PASS:  config.compile_wait_queue is empty") 
         #config.compile_done_queue.visualize_schedule()                 
-        config.compile_done_queue.save_to_csv("/media/sf_workspace/archon/run_regression/compile_done_queue.csv")
-        config.compile_done_queue.save_to_db("/home/v/TEMP/smartq.db")
+        config.compile_done_queue.save_to_csv(config.get_csv_name())
+
+        config.compile_done_queue.save_to_db(config.get_sql_db_name())
+      
 
         print("End of Regression")
 
