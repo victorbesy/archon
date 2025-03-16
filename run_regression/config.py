@@ -206,10 +206,6 @@ class Config:
         """
         c.execute(create_error_query)
 
-        # Insert initial rows into error_data.
-        initial_rows = [("Error", "Error"), ("hash_tag", "hash_tag")]
-        c.executemany("INSERT INTO error_data (error, hash_tag) VALUES (?, ?)", initial_rows)
-
         conn.commit()
         conn.close()
 
