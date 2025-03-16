@@ -6,6 +6,7 @@ import datetime
 import random
 from functools import wraps
 from queue_utils import SmartQUtils
+from db_utils import DBUtils  # Import DBUtils
 import time
 import csv
 import mysql.connector
@@ -21,9 +22,10 @@ def lock_sync(func):
             return func(self, *args, **kwargs)
     return wrapper
 
-class SmartQ(deque, SmartQUtils):
+class SmartQ(deque, SmartQUtils, DBUtils):  # Inherit from DBUtils
     def __init__(self, verbose=True, name="NA"):
         SmartQUtils.__init__(self, verbose=False)  # Initialize SmartQUtils
+        DBUtils.__init__(self, verbose=False)  # Initialize DBUtils
         deque.__init__(self)
         self.lock = threading.Lock()
         self.verbose = verbose
@@ -224,68 +226,8 @@ class SmartQ(deque, SmartQUtils):
         plt.show(block=True)  # Keeps the window open until manually closed
    
     @lock_sync
-    def save_to_csv(self, filepath):
-        with open(filepath, mode='w', newline='') as file:
-            writer = csv.writer(file)
-            
-            # Define the main header
-            header_main = [
-                'command', 'subdir', 'status', 'approved', 'adviser', 'process', 'process_info',
-                'process_info', 'process_info', 'process_info', 'process_info', 'process_info', 'process_info',
-                'process_info', 'process_info', 'process_info', 'cpu_times', 'cpu_times', 'cpu_times', 'cpu_times', 'cpu_times',
-                'adviser_response', 'adviser_response', 'adviser_response', 'pid'
-            ]
-            
-            # Define the sub-header
-            header_sub = ['', '', '', '', '', '', 'pid', 'memory', 'memory', 'memory', 'cpu', 'cpu', '', '', '',
-                          'cpu_times', 'cpu_times', 'cpu_times', 'cpu_times', 'cpu_times', '', '', '', '']
-            
-            # Define the third header row
-            header_third = ['', '', '', '', '', '', '', 'rss', 'vms', 'percent', 'percent', 'num', 'waitq_start_time', 'runq_start_time', 'doneq_start_time',
-                            'user', 'system', 'children_user', 'children_system', 'iowait', 'get_worker_info', 'worker_resource_config', 'change_worker', '']
-            
-            # Write header rows
-            writer.writerow(header_main)
-            writer.writerow(header_sub)
-            writer.writerow(header_third)
-            
-            # Write data rows
-            for item in self:
-                process_info = item['process_info']
-                adviser_response = item['adviser_response']
-                row = [
-                    item['command'],
-                    item['subdir'],
-                    item['status'],
-                    ','.join(item['approved']) if isinstance(item['approved'], list) else item['approved'],
-                    item['adviser'],
-                    str(item['process']),
-                    process_info.get('pid', 0)
-                ]
-                # Append process_info values
-                row.extend([
-                    process_info.get('memory_rss', 0),
-                    process_info.get('memory_vms', 0),
-                    process_info.get('memory_percent', 0),
-                    process_info.get('cpu_percent', 0),
-                    process_info.get('cpu_num', 0),
-                    process_info.get('waitq_start_time', 0),
-                    process_info.get('runq_start_time', 0),
-                    process_info.get('doneq_start_time', 0)
-                ])
-                # Append cpu_times values
-                cpu_times = process_info.get('cpu_times', {})
-                row.extend([getattr(cpu_times, key, 0) for key in ['user', 'system', 'children_user', 'children_system', 'iowait']])
-                # Append adviser_response values
-                row.extend([adviser_response.get(key, 'NA') for key in ['get_worker_info', 'worker_resource_config', 'change_worker']])
-                # Append final pid column
-                row.append(item.get('pid', 0))
-                writer.writerow(row)
-        
-        if self.verbose:
-            print(f"Queue information saved to {filepath}")
-
-    
+    def save_to_csv(self, db_path):
+        super().save_to_csv(db_path)
 
     @lock_sync
     def save_to_db(self, db_path):
@@ -302,6 +244,6 @@ class SmartQ(deque, SmartQUtils):
 
         if self.verbose:
             print(f"Database saved/updated at {db_path}")
- 
-   
+
+
 

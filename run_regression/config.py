@@ -3,79 +3,89 @@
 import os
 import datetime
 from queues import SmartQ
+from db_utils import DBUtils  # Import DBUtils
 import csv
 import mysql.connector
 import sqlite3
 import json
 import hashlib
-import os
 
-class Config:
+class Config(DBUtils):  # Inherit from DBUtils
     compile_eot = False
     test_eot = False
     watchdog_eot = False
+
     def __init__(self, regression_config):
+        super().__init__(verbose=False)  # Initialize DBUtils
         self.regression_name = regression_config.get('regression_name', 'default_regression_name')
         self.create_directory()
-        self.compile_wait_queue = SmartQ(verbose=False,name="compile_wait_queue")
-        self.compile_run_queue = SmartQ(verbose=False,name="compile_run_queue")
-        self.compile_done_queue = SmartQ(verbose=False,name="compile_done_queue")
-        self.test_wait_queue = SmartQ(verbose=False,name="test_wait_queue")
-        self.test_run_queue = SmartQ(verbose=False,name="test_run_queue")
-        self.test_done_queue = SmartQ(verbose=False,name="test_done_queue")
-        self.comp_adv_req_queue = SmartQ(verbose=False,name="comp_adv_req_queue")
-        self.comp_adv_resp_queue = SmartQ(verbose=False,name="comp_adv_resp_queue")
+        self.compile_wait_queue = SmartQ(verbose=False, name="compile_wait_queue")
+        self.compile_run_queue = SmartQ(verbose=False, name="compile_run_queue")
+        self.compile_done_queue = SmartQ(verbose=False, name="compile_done_queue")
+        self.test_wait_queue = SmartQ(verbose=False, name="test_wait_queue")
+        self.test_run_queue = SmartQ(verbose=False, name="test_run_queue")
+        self.test_done_queue = SmartQ(verbose=False, name="test_done_queue")
+        self.comp_adv_req_queue = SmartQ(verbose=False, name="comp_adv_req_queue")
+        self.comp_adv_resp_queue = SmartQ(verbose=False, name="comp_adv_resp_queue")
         self.number_of_compile_workers = 0
         self.number_of_test_workers = 0
         self.sql_name = None
         self.csv_name = None
         self.adviser_response_dict = {
-        "worker_execution": [
-            "wait",
-            "start",
-            "stop",
-            "pause",
-            "resume",
-            "restart",
-            "kill",
-            "finish",
-            "timeout"
-        ],
-        "get_worker_info": [
-            "get log",
-            "get status",
-            "update state"
-        ],
-        "worker_resource_config": [
-            "get config",
-            "scale up memory",
-            "scale down memory",
-            "scale up cpu",
-            "scale down cpu"
-        ],
-        "change_worker": [
-            "update code",
-            "deploy version",
-            "rollback version"
-        ]
-    }
-    
+            "worker_execution": [
+                "wait",
+                "start",
+                "stop",
+                "pause",
+                "resume",
+                "restart",
+                "kill",
+                "finish",
+                "timeout"
+            ],
+            "get_worker_info": [
+                "get log",
+                "get status",
+                "update state"
+            ],
+            "worker_resource_config": [
+                "get config",
+                "scale up memory",
+                "scale down memory",
+                "scale up cpu",
+                "scale down cpu"
+            ],
+            "change_worker": [
+                "update code",
+                "deploy version",
+                "rollback version"
+            ]
+        }
+
     def set_csv_name(self, csv_name):
         self.csv_name = csv_name
+
     def get_csv_name(self):
         return self.csv_name
+
     def set_sql_db_name(self, db_path):
         self.sql_name = db_path
+
     def get_sql_db_name(self):
         return self.sql_name
-    def set_number_of_compile_workers(self,number):
+
+    def set_number_of_compile_workers(self, number):
         self.number_of_compile_workers = number
-    def set_number_of_test_workers(self,number):
+
+    def set_number_of_test_workers(self, number):
         self.number_of_test_workers = number
+
     def get_number_of_compile_workers(self):
         return self.number_of_compile_workers
+
     def get_number_of_test_workers(self):
         return self.number_of_test_workers
+
     def set_watchdog_eot(self):
         self.watchdog_eot = True
 
@@ -127,86 +137,5 @@ class Config:
             return in_list
         else:
             return False
-
-    def initialize_db(self, db_path):
-        """
-        Initialize the SQLite database at db_path if it does not already exist.
-        
-        If the database file exists, do nothing.
-        Otherwise, create the database with two tables:
-        1. queue_data, with the following columns:
-                hash_tag TEXT,
-                command TEXT,
-                subdir TEXT,
-                status TEXT,
-                memory_rss TEXT,
-                memory_vms TEXT,
-                memory_percent TEXT,
-                cpu_percent TEXT,
-                cpu_num TEXT,
-                cpu_times_user TEXT,
-                cpu_times_system TEXT,
-                cpu_times_children_user TEXT,
-                cpu_times_children_system TEXT,
-                cpu_times_iowait TEXT,
-                adviser_response_get_worker_info TEXT,
-                adviser_response_worker_resource_config TEXT,
-                adviser_response_change_worker TEXT,
-                wait_time TEXT,
-                run_time TEXT,
-                total_time TEXT,
-            and a primary key on (command, subdir).
-        
-        2. error_data, with the following columns:
-                error TEXT PRIMARY KEY,
-                hash_tag TEXT
-            This table is initialized with two rows:
-                ("Error", "Error") and ("hash_tag", "hash_tag").
-        """
-        if os.path.exists(db_path):
-            return
-
-        conn = sqlite3.connect(db_path)
-        c = conn.cursor()
-
-        # Create the queue_data table.
-        create_queue_query = """
-        CREATE TABLE IF NOT EXISTS queue_data (
-            hash_tag TEXT,
-            command TEXT,
-            subdir TEXT,
-            status TEXT,
-            memory_rss TEXT,
-            memory_vms TEXT,
-            memory_percent TEXT,
-            cpu_percent TEXT,
-            cpu_num TEXT,
-            cpu_times_user TEXT,
-            cpu_times_system TEXT,
-            cpu_times_children_user TEXT,
-            cpu_times_children_system TEXT,
-            cpu_times_iowait TEXT,
-            adviser_response_get_worker_info TEXT,
-            adviser_response_worker_resource_config TEXT,
-            adviser_response_change_worker TEXT,
-            wait_time TEXT,
-            run_time TEXT,
-            total_time TEXT,
-            PRIMARY KEY (command, subdir)
-        );
-        """
-        c.execute(create_queue_query)
-
-        # Create the error_data table.
-        create_error_query = """
-        CREATE TABLE IF NOT EXISTS error_data (
-            error TEXT PRIMARY KEY,
-            hash_tag TEXT
-        );
-        """
-        c.execute(create_error_query)
-
-        conn.commit()
-        conn.close()
 
 

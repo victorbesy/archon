@@ -210,18 +210,18 @@ class QManager(threading.Thread, SmartQUtils):
         self.log('process_runQ')
         task = self._run_queue.peek()
         hit = self.config.find_list_entry_index(task['approved'], self._name)
-        if hit is not None:
-            self._run_queue.print_queue('QM')
+        #if hit is not None:
+            #self._run_queue.print_queue('QM')
             # task['approved'] = self.config.remove_list_entry_by_index(task['approved'], hit)
-            self._run_queue.print_queue('QM')
+            #self._run_queue.print_queue('QM')
 
     def process_doneQ(self):
         self.log('process_doneQ')
         task = self._done_queue.peek()
         hit = self.config.find_list_entry_index(task['approved'], self._name)
-        if hit is not None:
-            self._done_queue.print_queue('QM')
+        #if hit is not None:
+            #self._done_queue.print_queue('QM')
             # task['approved'] = self.config.remove_list_entry_by_index(task['approved'], hit)
-            self._done_queue.print_queue('QM')
+            #self._done_queue.print_queue('QM')
 
    

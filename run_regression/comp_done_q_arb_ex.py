@@ -10,12 +10,14 @@ import time
 import random
 from icecream import ic
 from queue_utils import SmartQUtils
-import time
+from db_utils import DBUtils  # Import DBUtils
 import hashlib
 
-class CompDoneQArbEx(threading.Thread, SmartQUtils):
+class CompDoneQArbEx(threading.Thread, SmartQUtils, DBUtils):  # Inherit from DBUtils
     def __init__(self, config, system_config, set_completion_ev):
-        super().__init__()
+        threading.Thread.__init__(self)
+        SmartQUtils.__init__(self)
+        DBUtils.__init__(self)
         self.config = config
         self.system_config = system_config
         self._wait_queue = None
@@ -83,25 +85,23 @@ class CompDoneQArbEx(threading.Thread, SmartQUtils):
                         current_entry['status'] = 'ok'
                     case _:
                         current_entry['status'] = 'error'
-                        process_hash_tag = current_entry['command'] +current_entry['subdir']
-                        #process_dir = self.config.root_dir +current_entry['subdir']
+                        process_hash_tag = current_entry['command'] + current_entry['subdir']
                         process_dir = os.path.abspath(os.path.join(self.config.root_dir, current_entry['subdir']))
                         print("Full path to process directory:", process_dir)
                         hash_tag = self.compute_hash_tag(process_hash_tag)
                         error_entries = self.extract_compile_log_errors(process, process_dir)
-                        result_array= self.attach_hash_tag_to_errors(error_entries, hash_tag) 
+                        result_array = self.attach_hash_tag_to_errors(error_entries, hash_tag)
                         for entry in result_array:
                             # Extract the first and second members
                             error_text_current = entry[0]  # List of error details
                             hash_tag_current = entry[1]    # Hash tag string
-                            self._done_queue.update_error_data(self.config.get_sql_db_name(), error_text_current,hash_tag_current)
-                            ic(error_text_current,hash_tag_current, error_entries,hash_tag_current)
+                            self._done_queue.update_error_data(self.config.get_sql_db_name(), error_text_current, hash_tag_current)
+                            ic(error_text_current, hash_tag_current, error_entries, hash_tag_current)
                 self.set_doneq_start_time(current_entry, time.time())
                 self._run_queue.remove(current_entry)
                 self._done_queue.put(current_entry)
             else:
                 # Process is still running.
-                #print(f"Process {pid} is still running...")
                 time.sleep(delay)
 
             # Check if all expected processes are done.
@@ -127,7 +127,6 @@ class CompDoneQArbEx(threading.Thread, SmartQUtils):
                 "cpu_times": p.cpu_times(),
                 "cpu_num": p.cpu_num()
             }
-            #ic("Debug process_info",pid,process_info,"\n")
             updated_info = {}
             previous_info = self.previous_process_info.get(pid, {})
 
@@ -143,14 +142,9 @@ class CompDoneQArbEx(threading.Thread, SmartQUtils):
 
             # Check if there's any difference between updated_info and previous_info
             if previous_info != updated_info:
-                #ic("Debug updated_info",previous_info,updated_info,"\n")
                 self.previous_process_info[pid] = updated_info
-                #print("Process Information has changed:")
-                #for key, value in updated_info.items():
-                #    print(f"{key}: {value}")
                 return updated_info
             else:
-                #print(f"Process information for PID {pid} has not changed.")
                 return None
 
         except psutil.NoSuchProcess:
@@ -161,7 +155,7 @@ class CompDoneQArbEx(threading.Thread, SmartQUtils):
             print(f"Process {pid} is a zombie (ZombieProcess).")
         except Exception as e:
             print(f"Unexpected error accessing process {pid}: {e}")
-    
+
     def extract_compile_log_errors(self, process, process_dir):
         """
         Extract error and warning lines from the compile log file.
@@ -170,7 +164,7 @@ class CompDoneQArbEx(threading.Thread, SmartQUtils):
         logfile_name = compile_log_config.get('logfile_name', 'verilator_comp.log')
         error_keywords = compile_log_config.get('error_keywords', ['Error', '%Error', 'ERROR'])
         error_line_depth = compile_log_config.get('error_line_depth', 3)
-        
+
         error_entries = []
         if process.returncode != 0:
             log_file_path = os.path.join(process_dir, logfile_name)
@@ -199,17 +193,17 @@ class CompDoneQArbEx(threading.Thread, SmartQUtils):
             print("Process did not complete successfully; skipping log extraction.")
         return error_entries
 
-    def attach_hash_tag_to_errors(self,error_entries, hash_tag):
+    def attach_hash_tag_to_errors(self, error_entries, hash_tag):
         """
         Attach a hash tag to each error snippet in the error_entries list.
-        
+
         Args:
             error_entries (list): A list of error snippets, where each snippet is a list of strings.
             hash_tag (str): The hash tag to be appended to each error snippet.
-        
+
         Returns:
             list: A list of entries where each entry is of the form [error_snippet, hash_tag].
-        
+
         Example:
             error_entries = [
                 ['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish', 
@@ -223,7 +217,7 @@ class CompDoneQArbEx(threading.Thread, SmartQUtils):
                 'COMPILE FAILED']
             ]
             hash_tag = 'some_hash'
-        
+
             Returns:
                 [
                     [['%Error: top_sim_error.v:24:9: syntax error, unexpected $finish', '24 |         $finish;', '         ^~~~~~~'], 'some_hash'],
